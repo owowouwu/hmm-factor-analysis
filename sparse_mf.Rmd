@@ -1,0 +1,34 @@
+```{r}
+renv::activate()
+library(tidyverse)
+library(sparsefactor)
+library(data.table)
+```
+
+```{r}
+X <- fread('data/iPS/log_normalised_counts.csv.gz')
+genes <- X$V1
+X <- X[,-1]
+cells <- names(X)
+rownames(X) <- genes
+cell_diff <- read.csv('data/iPS/cell_diff_stages.tsv', sep='\t')
+```
+
+```{r}
+ips <- X %>%
+  subset(select = filter(cell_diff, cell_differentiation == "ips")$cell)
+
+defendo <- X %>%
+  subset(select = filter(cell_diff, cell_differentiation == "defendo")$cell)
+
+mesendo <- X %>%
+  subset(select = filter(cell_diff, cell_differentiation == "mesendo")$cell)
+```
+
+```{r}
+factors <- 10
+seed <- 123
+samples <- gibbs(3000, as.matrix(ips), rep(0.2, factors),  0.001, 0.001, 0.001, 0.001,
+					 thin=10, burn_in=2000, seed=seed)
+```
+
