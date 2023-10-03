@@ -4,3 +4,5 @@ renv/
 .Rprofile
 *.pickle
 .Rproj.user
+.Rhistory
+.RData
