@@ -6,3 +6,4 @@ renv/
 .Rproj.user
 .Rhistory
 .RData
+sync-data.sh
