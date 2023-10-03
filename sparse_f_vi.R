@@ -23,14 +23,12 @@ mat <- X %>%
 
 S <- 10 # sparse factors
 
-
-
 save.freq <- 100 # how often are variational factors saved
 best.elbo <- -Inf
-for(seed in 21:30) {
+for(seed in 21:25) {
   vi.res <- cavi(mat, rep(0.1, S), 0.001, 0.001, 0.001, 0.001,
                  save=save.freq, max_iter=10000, seed=seed)
-  
+  print(paste0("seed ", seed))
   n.iter <- tail(vi.res$iter, 1)
   idx <- n.iter / save.freq
   elbo <- vi.res$elbo[idx]
