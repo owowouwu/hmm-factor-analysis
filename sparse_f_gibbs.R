@@ -22,16 +22,16 @@ mat <- X %>%
   as.matrix()
 
 S <- 5 # sparse factors
+seed <- 1234
 
-for(seed in 11:15) {
-  samples <- gibbs(3000, mat, rep(0.1, S),
+samples <- gibbs(3000, mat, rep(0.1, S),
                    0.001, 0.001, 0.001, 0.001,
                    thin=10, burn_in=2000, seed=seed)
   # undo sign-switching and label-switching within chain
-  samples <- relabel_samples(samples)
+samples <- relabel_samples(samples)
   # save chain
-  saveRDS(samples, sprintf("output/gibbs_%s_s_%s.rds", stage, seed))
-}
+saveRDS(samples, sprintf("output/gibbs_%s_s_%s.rds", stage, seed))
+
 
 
 

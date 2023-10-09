@@ -7,3 +7,5 @@ renv/
 .Rhistory
 .RData
 sync-data.sh
+output/
+slurm/
