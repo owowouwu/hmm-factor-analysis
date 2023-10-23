@@ -1,0 +1,155 @@
+```{r}
+library(DropletUtils)
+library(SingleCellExperiment)
+library(scater)
+```
+
+```{r}
+mat <- Matrix::readMM('data/collab/BlueCone/matrix.mtx')
+barcodes <- read.delim('data/collab/BlueCone/barcodes.tsv.gz', header = FALSE)
+genes <- read.delim('data/collab/BlueCone/genes.tsv', header = FALSE)
+
+rownames(mat) <- genes$V1
+colnames(mat) <- barcodes$V1
+
+# drop  EFGP RFP
+mat <- mat[rownames(mat)!= "EGFP",]
+mat <- mat[rownames(mat)!= "RFP",]
+sce <- SingleCellExperiment(assays = list(counts = mat))
+sce
+```
+
+# Cell QC
+
+```{r}
+cellqc <- perCellQCMetrics(sce)
+colData(sce) <- cellqc
+```
+
+## Log Counts Plot
+
+```{r}
+plotColData(sce, y = "sum") +
+  scale_y_log10() +
+  ggtitle("Total Counts")
+```
+
+## Checking Elbow/Inflection Points
+
+```{r}
+bcrank <- barcodeRanks(counts(sce))
+uniq <- !duplicated(bcrank$rank)
+plot(bcrank$rank[uniq], bcrank$total[uniq], log="xy",
+    xlab="Rank", ylab="Total UMI count", cex.lab=1.2)
+
+abline(h=metadata(bcrank)$inflection, col="darkgreen", lty=2)
+abline(h=metadata(bcrank)$knee, col="dodgerblue", lty=2)
+
+legend("bottomleft", legend=c("Inflection", "Knee"), 
+        col=c("darkgreen", "dodgerblue"), lty=2, cex=1.2)
+```
+
+## Filtering out Doublets
+
+```{r}
+library(scds)
+sce <- cxds_bcds_hybrid(sce)
+```
+
+```{r}
+sce$doublet_outlier <- isOutlier(sce$hybrid_score, nmads = 5)
+hist(sce$hybrid_score) 
+abline(v = min(sce$hybrid_score[sce$doublet_outlier]), col = "firebrick",
+      lty = 2)
+```
+
+```{r}
+table(sce$doublet_outlier)
+```
+
+```{r}
+sce.filtered <- sce[,!sce$doublet_outlier]
+table(sce.filtered$doublet_outlier)
+```
+
+# Gene QC
+
+```{r}
+plotHighestExprs(sce.filtered[,sample(seq_len(ncol(sce.filtered)), 200)], exprs_values = "counts")
+```
+## Filtering Out Low Reads
+
+```{r}
+counts_per_gene <- scater::nexprs(sce.filtered, byrow=TRUE, detection_limit = 1)
+table(counts_per_gene > 5)
+```
+
+```{r}
+sce.filtered <- sce.filtered[counts_per_gene >5, ]
+```
+
+```{r}
+cellqc <- perCellQCMetrics(sce.filtered)
+colData(sce.filtered) <- cellqc
+```
+
+# Normalisation
+
+## Default RLE
+
+```{r}
+scater::plotRLE(sce.filtered[, order(sce.filtered$detected)], style = "minimal", colour_by = "detected",
+                exprs_values = "counts"
+                )
+```
+## CPM 
+
+```{r}
+logcounts(sce.filtered) <- log2(calculateCPM(sce.filtered) + 1)
+scater::plotRLE(sce.filtered[, order(sce.filtered$detected)], style = "minimal", colour_by = "detected",
+                exprs_values = "logcounts"
+                )
+```
+
+## scran
+
+```{r}
+library(scran)
+qclust <- quickCluster(sce.filtered, use.ranks = TRUE)
+sce.filtered <- computeSumFactors(sce.filtered,clusters = qclust)
+sce.filtered <- logNormCounts(sce.filtered)
+scater::plotRLE(sce.filtered[, order(sce.filtered$detected)], style = "minimal", 
+                colour_by = "detected", exprs_values = "logcounts")
+```
+## sctransform
+
+```{r}
+library(sctransform)
+```
+
+```{r}
+normalised <- sctransform::vst(as(counts(sce.filtered,use.names = TRUE), "dgCMatrix"),
+                               vst.flavor = "v2", 
+                               )
+```
+```{r}
+assay(sce.filtered, "sctrans") <- normalised$y
+```
+
+```{r}
+scater::plotRLE(sce.filtered[, order(sce.filtered$detected)], style = "minimal", 
+                colour_by = "detected", exprs_values = "sctrans")
+```
+
+# Using sctran
+
+```{r}
+set.seed(1001)
+dec <- modelGeneVarByPoisson(sce.filtered)
+plot(dec$mean, dec$total, pch = 16, cex = 0.5,
+    xlab = "Mean of log-expression", ylab = "Variance of log-expression")
+
+curfit <- metadata(dec)
+curve(curfit$trend(x), col = 'dodgerblue', add = TRUE, lwd = 2)
+```
+
