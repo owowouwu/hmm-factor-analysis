@@ -4,3 +4,4 @@ renv/
 .Rprofile
 *.pickle
 .Rproj.user
+output/
