@@ -16,6 +16,8 @@ class HiddenMarkovFA:
         self.T, self.G, self.N = data.shape
         self._parse_hyperparameters(**kwargs)
         self._init_variational_params()
+        self.mask = ~np.eye(self.K, dtype = bool)
+
 
     def _parse_hyperparameters(self, **kwargs):
         # TODO
@@ -58,8 +60,7 @@ class HiddenMarkovFA:
         Y_mu = np.einsum('tgn,tkn->tgk', self.Y, self.mu_F)
         # cursed outer product operations
         outer_product_mu_eta = np.einsum('tdj,tdj,tin,tjn->tdijn', self.eta, self.eta, self.mu_F, self.mu_F)
-        mask = ~np.eye(self.K, dtype=bool)
-        outer_product_sum_offdiag = np.einsum('tdijn,ij->tdin', outer_product_mu_eta, mask)
+        outer_product_sum_offdiag = np.einsum('tdijn,ij->tdin', outer_product_mu_eta, self.mask)
         outer_product_summed_n = outer_product_sum_offdiag.sum(axis = -1)
 
         mu_L_new = np.einsum('td,tdk->tdk', a_over_b_tau, sigma2_L_new*(Y_mu - outer_product_summed_n))
@@ -75,6 +76,11 @@ class HiddenMarkovFA:
 
         # more cursed outer product operations
         outer_product_mu_eta = np.einsum('tdj,tdi,tdi,tdj->tdji', self.eta, self.eta, self.mu_L, self.mu_L)
+        outer_prod_weighted = np.einsum('td,tdij->tdij', a_over_b_tau, outer_product_mu_eta)
+        outer_prod_weighted_sum_genes = outer_prod_weighted.sum(axis=1)
+        sum_fk_Dtau_lk_bar = np.einsum('tnki,ki->tnk', outer_prod_weighted_sum_genes, self.mask)[0, 0, :]
+
+        y_Dtau
 
 
         mu_F_new = sigma2_F_new

@@ -4,25 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e24b27bf-3c8e-4279-b4d6-f4047d50777f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/hmcfa/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hmcfa/model.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sandbox.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Untitled.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/analyse_nmf.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/analyse_nmf.ipynb" afterDir="false" />
+    <list default="true" id="a637fcc7-5279-4071-b679-7b7ca0988bee" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/master-thesis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/master-thesis.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hmcfa/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/hmcfa/model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Python Script" />
-        <option value="Jupyter Notebook" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -30,36 +23,32 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2ZmV9wHo8lOstD0xmsgaAwXW8IW" />
+  <component name="ProjectId" id="2ka4quJXbc8TSyF0PqugsilCA8h" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="e24b27bf-3c8e-4279-b4d6-f4047d50777f" name="Changes" comment="" />
-      <created>1703027093638</created>
+      <changelist id="a637fcc7-5279-4071-b679-7b7ca0988bee" name="Changes" comment="" />
+      <created>1723508547202</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1703027093638</updated>
-      <workItem from="1703027094804" duration="4813000" />
-      <workItem from="1704856371337" duration="20000" />
-      <workItem from="1722993899379" duration="763000" />
-      <workItem from="1723071729758" duration="5000" />
-      <workItem from="1723165171693" duration="16351000" />
+      <updated>1723508547202</updated>
+      <workItem from="1723508563375" duration="4505000" />
     </task>
     <servers />
   </component>
