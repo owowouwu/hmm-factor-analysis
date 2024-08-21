@@ -1,6 +1,13 @@
 import numpy as np
 import scipy as sp
+import scipy.stats
+from scipy.special import digamma, gamma
 from typing import Dict, List, Union
+from functools import cached_property
+
+# useful constants to precompute
+LOG_TWOPI = np.log(2 * np.pi)
+
 
 class HiddenMarkovFA:
 
@@ -16,73 +23,257 @@ class HiddenMarkovFA:
         self.T, self.G, self.N = data.shape
         self._parse_hyperparameters(**kwargs)
         self._init_variational_params()
-        self.mask = ~np.eye(self.K, dtype = bool)
-
+        self._updated_a_tau = False
+        self.mask = ~np.eye(self.K, dtype=bool)
+        self.I = np.eye(self.K, dtype=bool)
 
     def _parse_hyperparameters(self, **kwargs):
-        # TODO
-        self.a_alpha_prior = 1
-        self.b_alpha_prior = 1
-        self.a_tau_prior = 1
-        self.b_tau_prior = 1
-        self.pi = np.repeat(0.5, self.K)
-        self.dirchlet_prior_0 = 1
-        self.dirchlet_prior_1 = 1
+        # TODO properly
+        self.a_alpha_prior = np.full(shape=(self.T, self.K), fill_value=1)
+        self.b_alpha_prior = np.full(shape=(self.T, self.K), fill_value=1)
+        self.a_tau_prior = np.full(shape=(self.T, self.G), fill_value=1)
+        self.b_tau_prior = np.full(shape=(self.T, self.G), fill_value=1)
+        self.pi = np.log(np.full(shape=(self.K, 2), fill_value=0.5))
+        self.pi_extended = self.pi[np.newaxis, :, :]  # for later
+        self.dirchlet_A_prior = np.full(shape=(self.K, 2), fill_value=1)
+
     def _init_variational_params(self):
         self.mu_F = sp.stats.norm.rvs(size=(self.T, self.K, self.N))
-        self.sigma2_F = sp.stats.gamma.rvs(a=1,scale=1,size=(self.T, self.K, self.N))
+        self.sigma2_F = sp.stats.gamma.rvs(a=1, scale=1, size=(self.T, self.K, self.N))
         self.mu_L = sp.stats.norm.rvs(size=(self.T, self.G, self.K))
-        self.sigma2_L = sp.stats.gamma.rvs(a=1,scale=1,size=(self.T, self.G, self.K))
-        self.a_tau = sp.stats.gamma.rvs(a=1,scale=1,size=(self.T, self.G))
-        self.b_tau = sp.stats.gamma.rvs(a=1,scale=1,size=(self.T, self.G))
-        self.a_alpha = sp.stats.gamma.rvs(a=1,scale=1,size=(self.T, self.K))
-        self.b_alpha = sp.stats.gamma.rvs(a=1,scale=1,size=(self.T, self.K))
-        self.dirichlet = sp.stats.gamma.rvs(a=1,scale=1,size=(self.K, 2))
-        self.eta = sp.stats.beta.rvs(a=1,b=1,size=(self.T, self.G, self.K))
-        self.pairwise = sp.stats.beta.rvs(a=1,b=1,size=(self.T - 1, self.G, self.K, 2))
+        self.sigma2_L = sp.stats.gamma.rvs(a=1, scale=1, size=(self.T, self.G, self.K))
+        self.a_tau = sp.stats.gamma.rvs(a=1, scale=1, size=(self.T, self.G))
+        self.b_tau = sp.stats.gamma.rvs(a=1, scale=1, size=(self.T, self.G))
+        self.a_alpha = sp.stats.gamma.rvs(a=1, scale=1, size=(self.T, self.K))
+        self.b_alpha = sp.stats.gamma.rvs(a=1, scale=1, size=(self.T, self.K))
+        self.dirchlet_A = sp.stats.gamma.rvs(a=1, scale=1, size=(self.K, 2, 2))
+        self.A_variational = np.full(shape=(self.K, 2, 2), fill_value=0.5)
+        self.A_variational_to_add = self.A_variational[np.newaxis, :, :, :]
+        self.variational_likelihoods = np.zeros(shape=(2, self.T, self.G, self.K))
+        self.eta = sp.stats.beta.rvs(a=1, b=1, size=(self.T, self.G, self.K))
+        self.pairwise = sp.stats.beta.rvs(a=1, b=1, size=(self.T - 1, self.G, self.K, 2, 2))
 
+    # cached intermediate terms
 
-    def variational_likelihood(self, z, g, k, t):
+    @cached_property
+    def weighted_l(self):
+        return self.eta * self.mu_L
 
-        pass
+    @cached_property
+    def a_over_b_alpha(self):
+        return self.a_alpha / self.b_alpha
+
+    @cached_property
+    def a_over_b_tau(self):
+        return self.a_tau / self.b_tau
+
+    @cached_property
+    def second_moment_F(self):
+        return self.mu_F ** 2 + self.sigma2_F
+    @cached_property
+    def second_moment_L(self):
+        return self.mu_L ** 2 + self.sigma2_L
+    @cached_property
+    def mixed_moment_F(self):
+        outer_prod_mu_f = np.einsum('tkn,tin->tkin', self.mu_F, self.mu_F)
+        masked_sigma2_f = np.einsum('tkn,ki->tkin', self.sigma2_F, self.I)
+        mixed_moment_f = outer_prod_mu_f + masked_sigma2_f
+        return mixed_moment_f
+    @cached_property
+    def mixed_moment_L(self):
+        outer_prod_mu_l = np.einsum('tgk,tgi->tgki', self.mu_L, self.mu_L)
+        masked_sigma2_l = np.einsum('tgk,ki->tgki', self.sigma2_L, self.I)
+        mixed_moment_l = outer_prod_mu_l + masked_sigma2_l
+        return mixed_moment_l
+
+    # Baum Welsh steps
+    def V_step(self):
+        """
+        Variational HMM E step - compute 'expected' transition probs and pairwise probs
+        :return:
+        """
+
+        # 'expected' transition probs
+        # keep in logspace
+        A_variational_new = digamma(self.dirchlet_A) - digamma(self.dirchlet_A.sum(axis=2))[:, :, np.newaxis]
+
+        # likelihoods
+
+        # conditional mean
+        mu_bar = np.einsum('tgk,ki->tgk', self.weighted_l, self.mask)
+        mu_yd_conditional_z = self.mu_L + mu_bar
+        mu_yd_conditional_z = np.stack([mu_bar, mu_yd_conditional_z], axis=0)
+        mu_yd_conditional_z = np.einsum('ztgk,tkn->ztgn', mu_yd_conditional_z, self.mu_F)  # shape (2, T, G, N)
+
+        # just repeat
+        covar = np.repeat(self.a_over_b_tau[:, :, np.newaxis], axis=2, repeats=self.N)
+        sigmas = np.sqrt(covar)
+
+        # conditional likelihood z = 0
+        cond_likelihood_0 = sp.stats.norm.logpdf(self.Y, loc=mu_yd_conditional_z[0], scale=sigmas)
+        # conditional likelihood z = 1
+        cond_likelihood_1 = sp.stats.norm.logpdf(self.Y, loc=mu_yd_conditional_z[1], scale=sigmas)
+
+        cond_ll = np.stack([cond_likelihood_0, cond_likelihood_1], axis=0)
+
+        return A_variational_new, cond_ll
+
+    def M_step(self):
+        forward, backward = self.forward_messages(), self.backward_messages()
+        eta_new = np.exp(forward + backward)
+        pairwise_new = np.zeros(self.pairwise.shape)
+        for t in range(1, self.T):
+            pairwise_new[t - 1] = (
+                    forward[t - 1, :, :, np.newaxis, np.newaxis] +
+                    self.A_variational_to_add[np.newaxis, :, :, :, :] +
+                    self.variational_likelihoods[np.newaxis, :, t - 1, :, :, np.newaxis]
+            )
+        return eta_new, pairwise_new
+
+    def forward_messages(self):
+        forward = np.ones(shape=(self.T, self.G, self.K, 2))
+        forward[0, :, :, :] = self.pi_extended
+        for t in range(1, self.T):
+            forward[t, :, :, 0] = np.logaddexp(
+                forward[t - 1, :, :, 0] + self.A_variational_to_add[:, :, 0, 0] + self.variational_likelihoods[0, t, :,
+                                                                                  :],
+                forward[t - 1, :, :, 1] + self.A_variational_to_add[:, :, 1, 0] + self.variational_likelihoods[0, t, :,
+                                                                                  :]
+                )
+            forward[t, :, :, 1] = np.logaddexp(
+                forward[t - 1, :, :, 0] + self.A_variational_to_add[:, :, 0, 1] + self.variational_likelihoods[1, t, :,
+                                                                                  :],
+                forward[t - 1, :, :, 1] + self.A_variational_to_add[:, :, 1, 1] + self.variational_likelihoods[1, t, :,
+                                                                                  :]
+                )
+
+        return forward
+
+    def backward_messages(self):
+        backward = np.ones(shape=(self.T, self.G, self.K, 2))
+        backward[self.T, :, :, :] = 1
+        # iterate backwards
+        for t in range(self.T - 1, -1, -1):
+            backward[t, :, :, 0] = np.logaddexp(
+                backward[t + 1, :, :, 0] + self.A_variational_to_add[:, :, 0, 0] + self.variational_likelihoods[0,
+                                                                                   t + 1, :, :],
+                backward[t + 1, :, :, 1] + self.A_variational_to_add[:, :, 0, 1] + self.variational_likelihoods[1,
+                                                                                   t + 1, :, :]
+                )
+            backward[t, :, :, 1] = np.logaddexp(
+                backward[t + 1, :, :, 0] + self.A_variational_to_add[:, :, 1, 0] + self.variational_likelihoods[0,
+                                                                                   t + 1, :, :],
+                backward[t + 1, :, :, 1] + self.A_variational_to_add[:, :, 1, 1] + self.variational_likelihoods[1,
+                                                                                   t + 1, :, :]
+                )
+
+        return backward
+
+    # VI updates
 
     def update_L(self):
         # first update sigma
-        second_moment = self.mu_F ** 2 + self.sigma2_F
-        sum_second_moment = second_moment.sum(axis = 2)
-        a_over_b_alpha = self.a_alpha / self.b_alpha
-        a_over_b_tau = self.a_tau / self.b_tau
+        sum_second_moment_F = self.second_moment_F.sum(axis=2)
 
-        sigma2_L_new = a_over_b_alpha[:, np.newaxis, :] + np.einsum('td,tk->tdk', a_over_b_tau, sum_second_moment)
-        sigma2_L_new = 1 / self.sigma2_L
+        sigma2_L_new = self.a_over_b_alpha[:, np.newaxis, :] + np.einsum('td,tk->tdk', self.a_over_b_tau,
+                                                                         sum_second_moment_F
+                                                                         )
+        sigma2_L_new = 1 / sigma2_L_new
 
         # update mu
         Y_mu = np.einsum('tgn,tkn->tgk', self.Y, self.mu_F)
         # cursed outer product operations
         outer_product_mu_eta = np.einsum('tdj,tdj,tin,tjn->tdijn', self.eta, self.eta, self.mu_F, self.mu_F)
         outer_product_sum_offdiag = np.einsum('tdijn,ij->tdin', outer_product_mu_eta, self.mask)
-        outer_product_summed_n = outer_product_sum_offdiag.sum(axis = -1)
+        outer_product_summed_n = outer_product_sum_offdiag.sum(axis=-1)
 
-        mu_L_new = np.einsum('td,tdk->tdk', a_over_b_tau, sigma2_L_new*(Y_mu - outer_product_summed_n))
+        mu_L_new = np.einsum('td,tdk->tdk', self.a_over_b_tau, sigma2_L_new * (Y_mu - outer_product_summed_n))
         return mu_L_new, sigma2_L_new
 
     def update_F(self):
-
-        second_moment_L = self.mu_L**2 + self.sigma2_L
-        a_over_b_tau = self.a_tau / self.b_tau
-        sigma2_F_new = 1 / (np.einsum('td,tdk->tk', a_over_b_tau, self.eta * second_moment_L) + 1)
+        sigma2_F_new = 1 / (np.einsum('td,tdk->tk', self.a_over_b_tau, self.eta * self.second_moment_L) + 1)
         # broadcast this
-        sigma2_F_new = np.repeat(sigma2_F_new[:, :, np.newaxis], self.N, axis = 2)
+        sigma2_F_new = np.repeat(sigma2_F_new[:, :, np.newaxis], self.N, axis=2)
 
         # more cursed outer product operations
         outer_product_mu_eta = np.einsum('tdj,tdi,tdi,tdj->tdji', self.eta, self.eta, self.mu_L, self.mu_L)
-        outer_prod_weighted = np.einsum('td,tdij->tdij', a_over_b_tau, outer_product_mu_eta)
+        outer_prod_weighted = np.einsum('td,tdij->tdij', self.a_over_b_tau, outer_product_mu_eta)
         outer_prod_weighted_sum_genes = outer_prod_weighted.sum(axis=1)
-        sum_fk_Dtau_lk_bar = np.einsum('tnki,ki->tnk', outer_prod_weighted_sum_genes, self.mask)[0, 0, :]
+        sum_fk_Dtau_lk_bar = np.einsum('tnki,ki->tkn', outer_prod_weighted_sum_genes, self.mask)[0, 0, :]
 
-        y_Dtau
+        y_Dtau_l = np.einsum('tgn,tg,tgk->tkn', self.Y, self.a_over_b_tau, self.weighted_l)
 
-
-        mu_F_new = sigma2_F_new
+        mu_F_new = sigma2_F_new * (y_Dtau_l - sum_fk_Dtau_lk_bar)
 
         return mu_F_new, sigma2_F_new
+
+    def update_tau(self):
+        if not self._updated_a_tau:
+            a_tau_new = self.a_tau_prior + (self.N / 2.)
+        else:
+            a_tau_new = self.a_tau
+
+        y_dot_y = np.einsum('tgn,tgn->tg', self.Y, self.Y)
+        lbar_F_y = np.einsum('tgk,tkn,tgn->tg', self.weighted_l, self.mu_F, self.Y)
+
+        outer_prod_mu_l = np.einsum('tgk,tgi->tgki', self.mu_L, self.mu_L)
+        masked_sigma2_l = np.einsum('tgk,ki->tgki', self.sigma2_L, self.I)
+        mixed_moment_l = outer_prod_mu_l + masked_sigma2_l
+        mixed_eta = np.power(self.eta[:, :, :, np.newaxis], self.I) * self.eta[:, :, np.newaxis, :]
+        weighted_mix_moment_l = mixed_moment_l * mixed_eta
+
+        outer_prod_mu_f = np.einsum('tkn,tin->tkin', self.mu_F, self.mu_F)
+        masked_sigma2_f = np.einsum('tkn,ki->tkin', self.sigma2_F, self.I)
+        mixed_moment_f = outer_prod_mu_f + masked_sigma2_f
+        mixed_moment_f_sum_n = mixed_moment_f.sum(axis=-1)
+
+        l_FF_l_bar = weighted_mix_moment_l * mixed_moment_f_sum_n[:, np.newaxis, :, :]
+        # sum over K
+        l_FF_l_bar = l_FF_l_bar.sum(axis=(-2, -1))
+
+        b_tau_new = y_dot_y - 2 * lbar_F_y + l_FF_l_bar
+
+        return a_tau_new, b_tau_new
+
+    def update_alpha(self):
+
+        a_alpha_new = self.a_alpha_prior + 0.5 * self.eta.sum(axis=1)
+        b_alpha_new = self.b_alpha_prior + 0.5 * np.einsum('tgk,tgk->tk', self.eta, self.second_moment_L)
+
+        return a_alpha_new, b_alpha_new
+
+    def update_A(self):
+        dirchlet_A_new = self.dirchlet_A_prior + self.pairwise.sum(axis=(0, 1))  # sums over time and genes
+
+        return dirchlet_A_new
+
+    # elbo
+    def elbo(self):
+        """
+        god help me
+        :return:
+        """
+        p_F = -0.5 * ((self.mu_F + self.sigma2_F).sum() + (self.K * self.N) * LOG_TWOPI)
+        p_tau = (
+                (self.a_tau_prior - 1) * (digamma(self.a_tau) - np.log(self.b_tau)) -
+                 self.a_over_b_tau * self.b_tau_prior +
+                self.a_tau_prior * np.log(self.b_tau_prior) -
+                np.log(gamma(self.a_tau_prior))
+                 )
+        p_alpha = (
+                (self.a_alpha_prior - 1) * (digamma(self.a_alpha) - np.log(self.b_alpha)) -
+                self.a_over_b_alpha * self.b_alpha_prior +
+                self.a_alpha_prior * np.log(self.b_alpha_prior) -
+                np.log(gamma(self.a_alpha_prior))
+        )
+
+    # full algorithm
+
+    def run(self):
+        elbo_converged = False
+
+        while not elbo_converged:
+
+            pass
+        
+        pass
