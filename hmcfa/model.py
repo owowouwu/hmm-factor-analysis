@@ -86,6 +86,7 @@ class HiddenMarkovFA:
         mixed_moment_l = outer_prod_mu_l + masked_sigma2_l
         return mixed_moment_l
 
+
     # Baum Welsh steps
     def V_step(self):
         """
@@ -253,19 +254,41 @@ class HiddenMarkovFA:
         god help me
         :return:
         """
+        digam_a_tau = digamma(self.a_tau)
+        digam_a_alpha = digamma(self.a_alpha)
+        log_b_tau = np.log(self.b_tau)
+        log_b_alpha = np.log(self.b_alpha)
         p_F = -0.5 * ((self.mu_F + self.sigma2_F).sum() + (self.K * self.N) * LOG_TWOPI)
         p_tau = (
-                (self.a_tau_prior - 1) * (digamma(self.a_tau) - np.log(self.b_tau)) -
+                (self.a_tau_prior - 1) * (digam_a_tau - np.log(self.b_tau)) -
                  self.a_over_b_tau * self.b_tau_prior +
                 self.a_tau_prior * np.log(self.b_tau_prior) -
                 np.log(gamma(self.a_tau_prior))
                  )
         p_alpha = (
-                (self.a_alpha_prior - 1) * (digamma(self.a_alpha) - np.log(self.b_alpha)) -
+                (self.a_alpha_prior - 1) * (digam_a_alpha - log_b_alpha) -
                 self.a_over_b_alpha * self.b_alpha_prior +
                 self.a_alpha_prior * np.log(self.b_alpha_prior) -
                 np.log(gamma(self.a_alpha_prior))
         )
+        mixed_eta = np.power(self.eta[:, :, :, np.newaxis], self.I) * self.eta[:, :, np.newaxis, :]
+        weighted_mix_moment_l = mixed_eta * self.mixed_moment_L
+        p_Y = 0.5 * (
+            digam_a_tau[:, :, np.newaxis] - LOG_TWOPI - log_b_tau[:, :, np.newaxis] -
+            self.a_over_b_tau[:, :, np.newaxis] * (
+                self.Y ** 2 -
+                2 * self.Y * np.einsum('tgk,tgk,tkn->tgn', self.eta, self.mu_L, self.mu_F) +
+                np.einsum('tgij,tijn->tgn', weighted_mix_moment_l, self.mixed_moment_F)
+            )
+        ).sum()
+        p_L = 0.5 * (
+            self.eta * (
+                digam_a_alpha[:, np.newaxis, :] -
+                LOG_TWOPI - log_b_alpha[:, np.newaxis, :] -
+                self.a_over_b_alpha[:, np.newaxis, :] * self.second_moment_L
+                )
+            )
+        
 
     # full algorithm
 
