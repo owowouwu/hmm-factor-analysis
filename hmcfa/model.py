@@ -52,6 +52,7 @@ class HiddenMarkovFA:
         self.variational_likelihoods = np.zeros(shape=(2, self.T, self.G, self.K))
         self.eta = sp.stats.beta.rvs(a=1, b=1, size=(self.T, self.G, self.K))
         self.pairwise = sp.stats.beta.rvs(a=1, b=1, size=(self.T - 1, self.G, self.K, 2, 2))
+        self.normalisations = np.zeros(shape = (self.T, self.G, self.K))
 
     # cached intermediate terms
 
@@ -146,6 +147,11 @@ class HiddenMarkovFA:
                 forward[t - 1, :, :, 1] + self.A_variational_to_add[:, :, 1, 1] + self.variational_likelihoods[1, t, :,
                                                                                   :]
                 )
+
+            #normalsiations
+            self.normalisations[t, :, :] = forward[t,:,:,:].sum(axis = -1)
+            forward[t, :, :, :] = forward[t, :, :, :] / self.normalisations[t,:,:, np.newaxis]
+
 
         return forward
 
