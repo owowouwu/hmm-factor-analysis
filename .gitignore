@@ -5,3 +5,4 @@ renv/
 *.pickle
 .Rproj.user
 output/
+.idea/
