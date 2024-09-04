@@ -1,9 +1,12 @@
 import numpy as np
 import scipy as sp
 import scipy.stats
+import warnings
+from tqdm import tqdm
 from scipy.special import digamma, gamma
 from typing import Dict, List, Union
 from functools import cached_property
+from . import get_logger
 
 # useful constants to precompute
 LOG_TWOPI = np.log(2 * np.pi)
@@ -26,6 +29,7 @@ class HiddenMarkovFA:
         self._updated_a_tau = False
         self.mask = ~np.eye(self.K, dtype=bool)
         self.I = np.eye(self.K, dtype=bool)
+        self.logger = get_logger()
 
     def _parse_hyperparameters(self, **kwargs):
         # TODO properly
@@ -122,7 +126,7 @@ class HiddenMarkovFA:
 
     def M_step(self):
         forward, backward = self.forward_messages(), self.backward_messages()
-        eta_new = np.exp(forward + backward)
+        q_z = np.exp(forward + backward)
         pairwise_new = np.zeros(self.pairwise.shape)
         for t in range(1, self.T):
             pairwise_new[t - 1] = (
@@ -130,7 +134,17 @@ class HiddenMarkovFA:
                     self.A_variational_to_add[np.newaxis, :, :, :, :] +
                     self.variational_likelihoods[np.newaxis, :, t - 1, :, :, np.newaxis]
             )
-        return eta_new, pairwise_new
+
+        # normalise to ensure these are probabilities
+        normalisation_constants = q_z.sum(axis = -1)
+        q_z = q_z / normalisation_constants[:,:,:,np.newaxis]
+
+        # eta is q_z = 1 / expected value over hidden states
+        eta_new = q_z[:,:,:,1]
+        pairwise_normalisations = pairwise_new.sum(axis = (-1,-2))
+        pairwise_new = pairwise_new / pairwise_normalisations[:,:,:,np.newaxis,np.newaxis]
+
+        return eta_new, pairwise_new, normalisation_constants
 
     def forward_messages(self):
         forward = np.ones(shape=(self.T, self.G, self.K, 2))
@@ -148,11 +162,6 @@ class HiddenMarkovFA:
                 forward[t - 1, :, :, 1] + self.A_variational_to_add[:, :, 1, 1] + self.variational_likelihoods[1, t, :,
                                                                                   :]
                 )
-
-            #normalsiations
-            self.normalisations[t, :, :] = forward[t,:,:,:].sum(axis = -1)
-            forward[t, :, :, :] = forward[t, :, :, :] / self.normalisations[t,:,:, np.newaxis]
-
 
         return forward
 
@@ -264,29 +273,21 @@ class HiddenMarkovFA:
         digam_a_alpha = digamma(self.a_alpha)
         log_b_tau = np.log(self.b_tau)
         log_b_alpha = np.log(self.b_alpha)
-        p_F = -0.5 * ((self.mu_F + self.sigma2_F).sum() + (self.K * self.N) * LOG_TWOPI)
+        p_F = -0.5 * ((self.mu_F + self.sigma2_F).sum() + (self.K * self.N * self.T) * LOG_TWOPI)
         p_tau = (
                 (self.a_tau_prior - 1) * (digam_a_tau - np.log(self.b_tau)) -
                  self.a_over_b_tau * self.b_tau_prior +
                 self.a_tau_prior * np.log(self.b_tau_prior) -
                 np.log(gamma(self.a_tau_prior))
-                 )
+                 ).sum()
         p_alpha = (
                 (self.a_alpha_prior - 1) * (digam_a_alpha - log_b_alpha) -
                 self.a_over_b_alpha * self.b_alpha_prior +
                 self.a_alpha_prior * np.log(self.b_alpha_prior) -
                 np.log(gamma(self.a_alpha_prior))
-        )
+        ).sum()
         mixed_eta = np.power(self.eta[:, :, :, np.newaxis], self.I) * self.eta[:, :, np.newaxis, :]
         weighted_mix_moment_l = mixed_eta * self.mixed_moment_L
-        p_Y = 0.5 * (
-            digam_a_tau[:, :, np.newaxis] - LOG_TWOPI - log_b_tau[:, :, np.newaxis] -
-            self.a_over_b_tau[:, :, np.newaxis] * (
-                self.Y ** 2 -
-                2 * self.Y * np.einsum('tgk,tgk,tkn->tgn', self.eta, self.mu_L, self.mu_F) +
-                np.einsum('tgij,tijn->tgn', weighted_mix_moment_l, self.mixed_moment_F)
-            )
-        ).sum()
         p_L = 0.5 * (
             self.eta * (
                 digam_a_alpha[:, np.newaxis, :] -
@@ -294,15 +295,62 @@ class HiddenMarkovFA:
                 self.a_over_b_alpha[:, np.newaxis, :] * self.second_moment_L
                 )
             )
-        
+
+        q_F = 0.5 * (self.T * self.K * self.N * (1 + LOG_TWOPI) + np.log(self.sigma2_F.sum()))
+        q_tau = (
+            self.a_tau - log_b_tau + np.log(gamma(self.a_tau)) + (1 - self.a_tau) * digam_a_tau
+        ).sum()
+
+        q_alpha = (
+            self.a_alpha - log_b_alpha + np.log(gamma(self.a_alpha)) + (1 - self.a_alpha) * digam_a_alpha
+        ).sum()
+
+        q_L = 0.5 * (self.eta * np.log(2 * np.pi * self.sigma2_L) + self.eta).sum()
+        q_Z = np.log(self.normalisations).sum()
+
+        # simplified expression so it's easier
+        p_q_A = ((self.dirchlet_A - self.dirchlet_A_prior) * self.A_variational).sum()
+
+
+        return (
+            p_F + p_tau + p_alpha + p_L + q_F + q_alpha + q_tau + q_L + q_Z + p_q_A
+        )
 
     # full algorithm
 
-    def run(self):
+    def run(self, eps: float = 1e-3, max_it: int = 1000, progress_bar : bool = False):
         elbo_converged = False
+        current_elbo = -np.inf
+        elbos = np.zeros(max_it)
+        converged = False
+        for i in tqdm(range(max_it), disable = not progress_bar):
 
-        while not elbo_converged:
+            # update 'emission' parameters
+            self.mu_L, self.sigma2_L = self.update_L()
+            self.mu_F, self.sigma2_F = self.update_F()
+            self.a_tau, self.b_tau = self.update_tau()
+            self.a_alpha, self.b_alpha = self.update_alpha()
 
-            pass
-        
-        pass
+            # local updates
+            self.dirchlet_A = self.update_A()
+            self.A_variational, self.variational_likelihoods = self.V_step()
+            self.eta, self.pairwise, self.normalisations = self.M_step()
+
+            # compute elbo
+            new_elbo = self.elbo()
+            elbos[i] = new_elbo
+            delta = np.abs(current_elbo - new_elbo)
+
+            self.logger.debug(f"Iteration {i} - ELBO - {new_elbo:.4f}")
+
+            if new_elbo > current_elbo:
+                warnings.warn(f"Iteration {i} - increase in ELBO occurred")
+
+            if delta < eps:
+                print("ELBO Converged, done.")
+                converged = True
+
+        if not converged:
+            warnings.warn("ELBO did not converge for this run")
+
+        return elbos
