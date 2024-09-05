@@ -209,6 +209,7 @@ class HiddenMarkovFA:
     def update_F(self):
         sigma2_F_new = 1 / (np.einsum('td,tdk->tk', self.a_over_b_tau, self.eta * self.second_moment_L) + 1)
         # broadcast this
+
         sigma2_F_new = np.repeat(sigma2_F_new[:, :, np.newaxis], self.N, axis=2)
 
         # more cursed outer product operations
@@ -232,16 +233,10 @@ class HiddenMarkovFA:
         y_dot_y = np.einsum('tgn,tgn->tg', self.Y, self.Y)
         lbar_F_y = np.einsum('tgk,tkn,tgn->tg', self.weighted_l, self.mu_F, self.Y)
 
-        outer_prod_mu_l = np.einsum('tgk,tgi->tgki', self.mu_L, self.mu_L)
-        masked_sigma2_l = np.einsum('tgk,ki->tgki', self.sigma2_L, self.I)
-        mixed_moment_l = outer_prod_mu_l + masked_sigma2_l
         mixed_eta = np.power(self.eta[:, :, :, np.newaxis], self.I) * self.eta[:, :, np.newaxis, :]
-        weighted_mix_moment_l = mixed_moment_l * mixed_eta
+        weighted_mix_moment_l = self.mixed_moment_L * mixed_eta
 
-        outer_prod_mu_f = np.einsum('tkn,tin->tkin', self.mu_F, self.mu_F)
-        masked_sigma2_f = np.einsum('tkn,ki->tkin', self.sigma2_F, self.I)
-        mixed_moment_f = outer_prod_mu_f + masked_sigma2_f
-        mixed_moment_f_sum_n = mixed_moment_f.sum(axis=-1)
+        mixed_moment_f_sum_n = self.mixed_moment_F.sum(axis=-1)
 
         l_FF_l_bar = weighted_mix_moment_l * mixed_moment_f_sum_n[:, np.newaxis, :, :]
         # sum over K
@@ -287,7 +282,6 @@ class HiddenMarkovFA:
                 np.log(gamma(self.a_alpha_prior))
         ).sum()
         mixed_eta = np.power(self.eta[:, :, :, np.newaxis], self.I) * self.eta[:, :, np.newaxis, :]
-        weighted_mix_moment_l = mixed_eta * self.mixed_moment_L
         p_L = 0.5 * (
             self.eta * (
                 digam_a_alpha[:, np.newaxis, :] -
