@@ -1,0 +1,16 @@
+2024-09-06 14:28:16,068 - hmcfa - DEBUG - Performing global updates
+2024-09-06 14:28:16,113 - hmcfa - DEBUG - Updated L
+2024-09-06 14:28:16,120 - hmcfa - DEBUG - Updated F
+2024-09-06 14:28:16,125 - hmcfa - DEBUG - Updated tau
+2024-09-06 14:28:16,125 - hmcfa - DEBUG - Updated alpha
+2024-09-06 14:28:16,126 - hmcfa - DEBUG - Updated A
+2024-09-06 14:28:16,126 - hmcfa - DEBUG - Performing local updates
+2024-09-06 14:28:16,127 - hmcfa - DEBUG - Performing V step
+2024-09-06 14:28:48,035 - hmcfa - DEBUG - Performing global updates
+2024-09-06 14:28:48,080 - hmcfa - DEBUG - Updated L
+2024-09-06 14:28:48,087 - hmcfa - DEBUG - Updated F
+2024-09-06 14:28:48,092 - hmcfa - DEBUG - Updated tau
+2024-09-06 14:28:48,094 - hmcfa - DEBUG - Updated alpha
+2024-09-06 14:28:48,094 - hmcfa - DEBUG - Updated A
+2024-09-06 14:28:48,095 - hmcfa - DEBUG - Performing local updates
+2024-09-06 14:28:48,096 - hmcfa - DEBUG - Performing V step
