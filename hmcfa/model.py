@@ -2,6 +2,7 @@ import numpy as np
 import scipy as sp
 import scipy.stats
 import warnings
+import tqdm
 from tqdm import tqdm
 from scipy.special import digamma, gamma
 from typing import Dict, List, Union
@@ -38,8 +39,8 @@ class HiddenMarkovFA:
         self.b_alpha_prior = kwargs.get('b_alpha_prior', np.full(shape=(self.T, self.K), fill_value=1))
         self.a_tau_prior = kwargs.get('a_tau_prior', np.full(shape=(self.T, self.G), fill_value=1))
         self.b_tau_prior = kwargs.get('b_tau_prior', np.full(shape=(self.T, self.G), fill_value=1))
-        self.pi = kwargs.get('pi', np.log(np.full(shape=(self.K, 2), fill_value=0.5)))
-        self.pi_extended = self.pi[np.newaxis, :, :]  # for later
+        self.pi = kwargs.get('pi', np.full(shape=(self.K, 2), fill_value=0.5))
+        self.log_pi = np.log(self.pi)  # for later
         self.dirchlet_A_prior = kwargs.get('dirchlet_A_prior', np.full(shape=(self.K, 2, 2), fill_value=1))
 
     def _init_variational_params(self):
@@ -56,6 +57,10 @@ class HiddenMarkovFA:
         self.variational_likelihoods = np.zeros(shape=(2, self.T, self.G, self.K))
         self.eta = sp.stats.beta.rvs(a=1, b=1, size=(self.T, self.G, self.K))
         self.pairwise = sp.stats.beta.rvs(a=1, b=1, size=(self.T - 1, self.G, self.K, 2, 2))
+
+        # normalise pairwsie
+        self.pairwise  = self.pairwise / self.pairwise.sum(axis = (-1, -2))[:,:,:, np.newaxis, np.newaxis]
+
         self.normalisations = np.zeros(shape=(self.T, self.G, self.K))
 
     # cached intermediate terms
@@ -131,7 +136,7 @@ class HiddenMarkovFA:
         # 'expected' transition probs
         # keep in logspace
         A_variational_new = digamma(self.dirchlet_A) - digamma(self.dirchlet_A.sum(axis=2))[:, :, np.newaxis]
-
+        print(A_variational_new)
         # likelihoods
 
         # conditional mean
@@ -139,26 +144,15 @@ class HiddenMarkovFA:
         mu_yd_conditional_z = self.mu_L + mu_bar
         mu_yd_conditional_z = np.stack([mu_bar, mu_yd_conditional_z], axis=0)
         mu_yd_conditional_z = contract('ztgk,tkn->ztgkn', mu_yd_conditional_z, self.mu_F)  # shape (2, T, G, K, N)
+        sigmas = np.sqrt(self.a_over_b_tau)[np.newaxis, :, :,np.newaxis, np.newaxis]
 
-        I = np.eye(self.N)
+        cond_likelihoods = sp.stats.norm.logpdf(
+            self.Y[np.newaxis, :, :, np.newaxis, :],
+            loc = mu_yd_conditional_z,
+            scale = sigmas
+        )
 
-        cond_likelihoods = np.zeros(shape=(2, self.T, self.G, self.K))
-
-        cond_likelihoods_0 =
-
-
-        # need to make this faster
-        for t in range(self.T):
-            for g in range(self.G):
-                for k in range(self.K):
-                    cond_likelihoods[0, t, g, k] = sp.stats.multivariate_normal(
-                        mean=mu_yd_conditional_z[0, t, g, k, :],
-                        cov=self.a_over_b_tau[t, g] * I
-                        ).pdf(self.Y[t, g, :])
-                    cond_likelihoods[1, t, g, k] = sp.stats.multivariate_normal(
-                        mean=mu_yd_conditional_z[1, t, g, k, :],
-                        cov=self.a_over_b_tau[t, g] * I
-                        ).pdf(self.Y[t, g, :])
+        print(cond_likelihoods)
 
         return A_variational_new, cond_likelihoods
 
@@ -172,13 +166,11 @@ class HiddenMarkovFA:
                     forward[t - 1, :, :, :, np.newaxis] +
                     self.A_variational[np.newaxis, :, :, :] +
                     self.variational_likelihoods.reshape(self.T, self.G, self.K, 2)[t-1,:,:,:,np.newaxis]
-
             )
 
         # normalise to ensure these are probabilities
         normalisation_constants = q_z.sum(axis=-1)
         q_z = q_z / normalisation_constants[:, :, :, np.newaxis]
-
         # eta is q_z = 1 / expected value over hidden states
         eta_new = q_z[:, :, :, 1]
         pairwise_normalisations = pairwise_new.sum(axis=(-1, -2))
@@ -188,14 +180,14 @@ class HiddenMarkovFA:
 
     def forward_messages(self):
         forward = np.ones(shape=(self.T, self.G, self.K, 2))
-        forward[0, :, :, :] = self.pi_extended
+        forward[0, :, :, :] = self.log_pi[np.newaxis, :, :]
         for t in range(1, self.T):
             forward[t, :, :, 0] = np.logaddexp(
                 forward[t - 1, :, :, 0] + self.A_variational[np.newaxis, :, 0, 0] + self.variational_likelihoods[0, t, :, :],
                 forward[t - 1, :, :, 1] + self.A_variational[np.newaxis, :, 1, 0] + self.variational_likelihoods[0, t, :, :]
                 )
             forward[t, :, :, 1] = np.logaddexp(
-                forward[t - 1, :, :, 0] + self.A_variational[np.newaxis, :, 0, 1] + self.variational_likelihoods[1, t, :,:],
+                forward[t - 1, :, :, 0] + self.A_variational[np.newaxis, :, 0, 1] + self.variational_likelihoods[1, t, :, :],
                 forward[t - 1, :, :, 1] + self.A_variational[np.newaxis, :, 1, 1] + self.variational_likelihoods[1, t, :, :]
                 )
 
@@ -203,7 +195,7 @@ class HiddenMarkovFA:
 
     def backward_messages(self):
         backward = np.ones(shape=(self.T, self.G, self.K, 2))
-        backward[self.T - 1, :, :, :] = 1
+        backward[self.T - 1, :, :, :] = 0
         # iterate backwards
         for t in range(self.T - 2, -1, -1):
             backward[t, :, :, 0] = np.logaddexp(
@@ -211,8 +203,8 @@ class HiddenMarkovFA:
                 backward[t + 1, :, :, 1] + self.A_variational[np.newaxis, :, 0, 1] + self.variational_likelihoods[1,t + 1, :, :]
                 )
             backward[t, :, :, 1] = np.logaddexp(
-                backward[t + 1, :, :, 0] + self.A_variational[np.newaxis, :, 1, 0] + self.variational_likelihoods[0,                                                                                   t + 1, :, :],
-                backward[t + 1, :, :, 1] + self.A_variational[np.newaxis, :, 1, 1] + self.variational_likelihoods[1,                                                                                   t + 1, :, :]
+                backward[t + 1, :, :, 0] + self.A_variational[np.newaxis, :, 1, 0] + self.variational_likelihoods[0,t + 1, :, :],
+                backward[t + 1, :, :, 1] + self.A_variational[np.newaxis, :, 1, 1] + self.variational_likelihoods[1,t + 1, :, :]
                 )
 
         return backward
@@ -279,7 +271,6 @@ class HiddenMarkovFA:
         return a_tau_new, b_tau_new
 
     def update_alpha(self):
-
         a_alpha_new = self.a_alpha_prior + 0.5 * self.eta.sum(axis=1)
         b_alpha_new = self.b_alpha_prior + 0.5 * contract('tgk,tgk->tk', self.eta, self.second_moment_L)
 
@@ -301,7 +292,6 @@ class HiddenMarkovFA:
         log_b_tau = np.log(self.b_tau)
         log_b_alpha = np.log(self.b_alpha)
         p_F = -0.5 * ((self.mu_F + self.sigma2_F).sum() + (self.K * self.N * self.T) * LOG_TWOPI)
-        print(p_F.shape)
         p_tau = (
                 (self.a_tau_prior - 1) * (digam_a_tau - np.log(self.b_tau)) -
                 self.a_over_b_tau * self.b_tau_prior +
@@ -350,7 +340,16 @@ class HiddenMarkovFA:
         elbos = np.zeros(max_it)
         converged = False
         for i in tqdm(range(max_it), disable=not progress_bar):
+            # local updates
+            self.logger.debug("Performing local updates")
+            self.logger.debug("Performing V step")
+            self.A_variational, self.variational_likelihoods = self.V_step()
 
+            self.logger.debug("Updated variational likelihoods and transition matrix")
+
+            self.logger.debug("Running forward-backward algorithm")
+            self.eta, self.pairwise, self.normalisations = self.M_step()
+            self.logger.debug("Updated hidden states")
             # update 'emission' parameters
             self.logger.debug("Performing global updates")
             self.mu_L, self.sigma2_L = self.update_L()
@@ -368,18 +367,9 @@ class HiddenMarkovFA:
             self.logger.debug("Updated alpha")
             self._clean_cache_alpha()
 
-            # local updates
             self.dirchlet_A = self.update_A()
             self.logger.debug("Updated A")
 
-            self.logger.debug("Performing local updates")
-            self.logger.debug("Performing V step")
-            self.A_variational, self.variational_likelihoods = self.V_step()
-            self.logger.debug("Updated variational likelihoods and transition matrix")
-
-            self.logger.debug("Running forward-backward algorithm")
-            self.eta, self.pairwise, self.normalisations = self.M_step()
-            self.logger.debug("Updated hidden states")
 
             # compute elbo
             new_elbo = self.elbo()
