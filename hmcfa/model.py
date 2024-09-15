@@ -75,14 +75,12 @@ class HiddenMarkovFA:
             del self.__dict__['second_moment_L']
 
     def _clean_cache_F(self):
-        if 'weighted_L' in self.__dict__:
-            del self.__dict__['weighted_L']
 
-        if 'mixed_moment_L' in self.__dict__:
-            del self.__dict__['mixed_moment_L']
+        if 'mixed_moment_F' in self.__dict__:
+            del self.__dict__['mixed_moment_F']
 
-        if 'second_moment_L' in self.__dict__:
-            del self.__dict__['second_moment_L']
+        if 'second_moment_F' in self.__dict__:
+            del self.__dict__['second_moment_F']
 
     def _clean_cache_tau(self):
         if 'a_over_b_tau' in self.__dict__:
@@ -169,17 +167,21 @@ class HiddenMarkovFA:
             )
 
         # normalise to ensure these are probabilities
-        q_z = np.exp(log_q_z - np.max(log_q_z, axis = -1, keepdims=True))
-        normalisation_constants = q_z.sum(axis=-1)
-        q_z = q_z / normalisation_constants[:, :, :, np.newaxis]
+        max_q_z = np.max(log_q_z, axis = -1)
+        q_z = np.exp(log_q_z - max_q_z[:,:,:,np.newaxis])
+        normalisation =  q_z.sum(axis=-1)
+        q_z = q_z / normalisation[:,:,:,np.newaxis]
         # eta is q_z(1) (expected value over hidden states)
         eta_new = q_z[:, :, :, 1]
+
+        # normalisation constants
+        log_normalisation = max_q_z + np.log(normalisation)
 
         pairwise_new_probs = np.exp(pairwise_new - np.max(pairwise_new, axis = (-1,-2), keepdims=True))
         pairwise_normalisations = pairwise_new_probs.sum(axis=(-1, -2), keepdims=True)
         pairwise_new_probs = pairwise_new_probs / pairwise_normalisations
 
-        return eta_new, pairwise_new_probs, normalisation_constants
+        return eta_new, pairwise_new_probs, log_normalisation
 
     def forward_messages(self):
         forward = np.ones(shape=(self.T, self.G, self.K, 2))
@@ -326,7 +328,7 @@ class HiddenMarkovFA:
         ).sum()
 
         q_L = 0.5 * (self.eta * np.log(2 * np.pi * self.sigma2_L) + self.eta).sum()
-        q_Z = np.log(self.normalisations).sum()
+        q_Z = self.normalisations.sum()
 
         # simplified expression so it's easier
         p_q_A = ((self.dirchlet_A - self.dirchlet_A_prior) * self.A_variational).sum()
@@ -337,7 +339,7 @@ class HiddenMarkovFA:
 
     # full algorithm        print(pairwise_new_probs)
 
-    def run(self, eps: float = 1e-3, max_it: int = 1000, progress_bar: bool = False):
+    def run(self, eps: float = 1e-4, max_it: int = 1000, progress_bar: bool = False):
         elbo_converged = False
         current_elbo = np.inf
         elbos = np.zeros(max_it)
@@ -366,6 +368,7 @@ class HiddenMarkovFA:
             self.a_tau, self.b_tau = self.update_tau()
             self.logger.debug("Updated tau")
             self._clean_cache_tau()
+
             self.a_alpha, self.b_alpha = self.update_alpha()
             self.logger.debug("Updated alpha")
             self._clean_cache_alpha()
@@ -376,16 +379,22 @@ class HiddenMarkovFA:
 
             # compute elbo
             new_elbo = self.elbo()
-            self.logger.info(f"Iteration {i} - ELBO - {new_elbo:.4f}")
             elbos[i] = new_elbo
             delta = np.abs(current_elbo - new_elbo)
+            pct_change = delta / np.abs(current_elbo)
+
+            self.logger.info(f"Iteration {i} - ELBO - {new_elbo:.4f} ({pct_change:.1e}% change)")
 
             if new_elbo > current_elbo:
                 warnings.warn(f"Iteration {i} - increase in ELBO occurred")
 
-            if delta < eps:
+            if pct_change < eps:
                 print("ELBO Converged, done.")
                 converged = True
+                return elbos[0:i]
+
+            current_elbo = new_elbo
+
 
         if not converged:
             warnings.warn("ELBO did not converge for this run")
