@@ -1,4 +1,3 @@
-renv::activate()
 library(sparsefactor)
 library(tidyverse)
 library(data.table)
