@@ -991,3 +991,1484 @@
 2024-09-14 14:19:07,108 - hmcfa - DEBUG - Updated alpha
 2024-09-14 14:19:07,108 - hmcfa - DEBUG - Updated A
 2024-09-14 14:19:07,108 - hmcfa - DEBUG - Iteration 0 - ELBO - nan
+2024-09-15 12:13:15,366 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:13:15,366 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:13:15,784 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:13:15,785 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:16:52,964 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:16:52,964 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:16:53,298 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:16:53,298 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:16:53,299 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:16:53,299 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:16:53,339 - hmcfa - DEBUG - Updated L
+2024-09-15 12:16:53,343 - hmcfa - DEBUG - Updated F
+2024-09-15 12:16:53,346 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:16:53,347 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:16:53,347 - hmcfa - DEBUG - Updated A
+2024-09-15 12:16:53,347 - hmcfa - DEBUG - Iteration 0 - ELBO - inf
+2024-09-15 12:17:43,633 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:17:43,633 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:17:43,856 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:17:43,857 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:17:43,859 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:17:43,859 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:17:43,900 - hmcfa - DEBUG - Updated L
+2024-09-15 12:17:43,905 - hmcfa - DEBUG - Updated F
+2024-09-15 12:17:43,907 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:17:43,908 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:17:43,908 - hmcfa - DEBUG - Updated A
+2024-09-15 12:17:43,908 - hmcfa - DEBUG - Iteration 0 - ELBO - inf
+2024-09-15 12:19:07,502 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:19:07,502 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:19:07,719 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:19:07,719 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:19:07,722 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:19:07,722 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:19:07,765 - hmcfa - DEBUG - Updated L
+2024-09-15 12:19:07,770 - hmcfa - DEBUG - Updated F
+2024-09-15 12:19:07,773 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:19:07,773 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:19:07,773 - hmcfa - DEBUG - Updated A
+2024-09-15 12:19:07,774 - hmcfa - DEBUG - Iteration 0 - ELBO - inf
+2024-09-15 12:20:10,933 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:20:10,933 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:20:11,113 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:20:11,113 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:20:11,117 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:20:11,117 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:20:11,168 - hmcfa - DEBUG - Updated L
+2024-09-15 12:20:11,174 - hmcfa - DEBUG - Updated F
+2024-09-15 12:20:11,177 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:20:11,178 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:20:11,178 - hmcfa - DEBUG - Updated A
+2024-09-15 12:20:11,178 - hmcfa - DEBUG - Iteration 0 - ELBO - inf
+2024-09-15 12:20:28,348 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:20:28,348 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:20:28,515 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:20:28,515 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:20:28,518 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:20:28,518 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:20:28,560 - hmcfa - DEBUG - Updated L
+2024-09-15 12:20:28,564 - hmcfa - DEBUG - Updated F
+2024-09-15 12:20:28,568 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:20:28,568 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:20:28,568 - hmcfa - DEBUG - Updated A
+2024-09-15 12:20:28,568 - hmcfa - DEBUG - Iteration 0 - ELBO - inf
+2024-09-15 12:22:24,482 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:22:24,482 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:22:24,653 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:22:24,653 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:22:24,664 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:22:24,664 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:22:24,706 - hmcfa - DEBUG - Updated L
+2024-09-15 12:22:24,712 - hmcfa - DEBUG - Updated F
+2024-09-15 12:22:24,717 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:22:24,717 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:22:24,717 - hmcfa - DEBUG - Updated A
+2024-09-15 12:33:47,947 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:33:47,947 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:33:48,123 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:33:48,123 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:33:48,127 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:33:48,127 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:33:48,167 - hmcfa - DEBUG - Updated L
+2024-09-15 12:33:48,172 - hmcfa - DEBUG - Updated F
+2024-09-15 12:33:48,175 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:33:48,175 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:33:48,175 - hmcfa - DEBUG - Updated A
+2024-09-15 12:33:48,176 - hmcfa - DEBUG - Iteration 0 - ELBO - -2640.6531
+2024-09-15 12:44:14,699 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:14,699 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:14,873 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:14,873 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:14,874 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:14,874 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:14,913 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:14,917 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:14,920 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:14,920 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:14,920 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:14,920 - hmcfa - DEBUG - Iteration 0 - ELBO - 13350.3134
+2024-09-15 12:44:14,921 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:14,921 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:15,091 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:15,091 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:15,092 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:15,092 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:15,130 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:15,134 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:15,137 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:15,137 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:15,137 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:15,137 - hmcfa - DEBUG - Iteration 1 - ELBO - -10600.4524
+2024-09-15 12:44:15,137 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:15,138 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:15,302 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:15,303 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:15,303 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:15,303 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:15,340 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:15,344 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:15,347 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:15,347 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:15,347 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:15,347 - hmcfa - DEBUG - Iteration 2 - ELBO - nan
+2024-09-15 12:44:15,348 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:15,348 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:15,590 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:15,590 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:15,591 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:15,591 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:15,627 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:15,632 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:15,634 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:15,634 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:15,634 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:15,634 - hmcfa - DEBUG - Iteration 3 - ELBO - nan
+2024-09-15 12:44:15,634 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:15,635 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:15,726 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:15,726 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:15,727 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:15,727 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:15,764 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:15,768 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:15,770 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:15,770 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:15,770 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:15,771 - hmcfa - DEBUG - Iteration 4 - ELBO - nan
+2024-09-15 12:44:15,771 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:15,771 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:15,862 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:15,863 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:15,863 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:15,863 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:15,900 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:15,905 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:15,907 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:15,907 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:15,907 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:15,907 - hmcfa - DEBUG - Iteration 5 - ELBO - nan
+2024-09-15 12:44:15,907 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:15,907 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:15,999 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:15,999 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:16,000 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:16,000 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:16,037 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:16,041 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:16,043 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:16,043 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:16,043 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:16,044 - hmcfa - DEBUG - Iteration 6 - ELBO - nan
+2024-09-15 12:44:16,044 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:16,044 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:16,135 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:16,135 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:16,136 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:16,136 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:16,171 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:16,175 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:16,178 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:16,178 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:16,178 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:16,178 - hmcfa - DEBUG - Iteration 7 - ELBO - nan
+2024-09-15 12:44:16,178 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:16,178 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:16,268 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:16,268 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:16,269 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:16,269 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:16,306 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:16,310 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:16,313 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:16,313 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:16,313 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:16,313 - hmcfa - DEBUG - Iteration 8 - ELBO - nan
+2024-09-15 12:44:16,313 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:16,313 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:16,404 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:16,404 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:16,405 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:16,405 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:16,442 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:16,446 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:16,448 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:16,449 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:16,449 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:16,449 - hmcfa - DEBUG - Iteration 9 - ELBO - nan
+2024-09-15 12:44:16,449 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:16,449 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:16,539 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:16,539 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:16,540 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:16,540 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:16,576 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:16,580 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:16,582 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:16,583 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:16,583 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:16,583 - hmcfa - DEBUG - Iteration 10 - ELBO - nan
+2024-09-15 12:44:16,583 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:16,583 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:16,673 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:16,673 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:16,674 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:16,674 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:16,711 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:16,715 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:16,717 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:16,717 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:16,717 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:16,718 - hmcfa - DEBUG - Iteration 11 - ELBO - nan
+2024-09-15 12:44:16,718 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:16,718 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:16,808 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:16,809 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:16,809 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:16,809 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:16,846 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:16,850 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:16,852 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:16,852 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:16,852 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:16,852 - hmcfa - DEBUG - Iteration 12 - ELBO - nan
+2024-09-15 12:44:16,852 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:16,853 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:16,942 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:16,942 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:16,943 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:16,943 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:16,979 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:16,984 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:16,986 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:16,986 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:16,986 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:16,987 - hmcfa - DEBUG - Iteration 13 - ELBO - nan
+2024-09-15 12:44:16,987 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:16,987 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:17,077 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:17,077 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:17,078 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:17,078 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:17,115 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:17,119 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:17,121 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:17,121 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:17,121 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:17,121 - hmcfa - DEBUG - Iteration 14 - ELBO - nan
+2024-09-15 12:44:17,122 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:17,122 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:17,212 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:17,212 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:17,213 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:17,213 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:17,250 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:17,254 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:17,256 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:17,256 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:17,256 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:17,257 - hmcfa - DEBUG - Iteration 15 - ELBO - nan
+2024-09-15 12:44:17,257 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:17,257 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:17,346 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:17,347 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:17,347 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:17,347 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:17,384 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:17,389 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:17,391 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:17,391 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:17,391 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:17,391 - hmcfa - DEBUG - Iteration 16 - ELBO - nan
+2024-09-15 12:44:17,391 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:17,391 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:17,481 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:17,481 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:17,482 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:17,482 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:17,518 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:17,522 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:17,524 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:17,524 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:17,524 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:17,525 - hmcfa - DEBUG - Iteration 17 - ELBO - nan
+2024-09-15 12:44:17,525 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:17,525 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:17,617 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:17,617 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:17,618 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:17,618 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:17,655 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:17,659 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:17,662 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:17,662 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:17,662 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:17,662 - hmcfa - DEBUG - Iteration 18 - ELBO - nan
+2024-09-15 12:44:17,662 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:17,662 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:17,752 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:17,752 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:17,753 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:17,753 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:17,789 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:17,793 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:17,795 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:17,796 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:17,796 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:17,796 - hmcfa - DEBUG - Iteration 19 - ELBO - nan
+2024-09-15 12:44:17,796 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:17,796 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:17,886 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:17,886 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:17,887 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:17,887 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:17,923 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:17,927 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:17,929 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:17,929 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:17,929 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:17,929 - hmcfa - DEBUG - Iteration 20 - ELBO - nan
+2024-09-15 12:44:17,930 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:17,930 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:18,023 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:18,023 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:18,023 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:18,024 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:18,060 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:18,064 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:18,067 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:18,067 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:18,067 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:18,067 - hmcfa - DEBUG - Iteration 21 - ELBO - nan
+2024-09-15 12:44:18,067 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:18,067 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:18,158 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:18,158 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:18,159 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:18,159 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:18,194 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:18,199 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:18,201 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:18,201 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:18,201 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:18,201 - hmcfa - DEBUG - Iteration 22 - ELBO - nan
+2024-09-15 12:44:18,202 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:18,202 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:18,291 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:18,291 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:18,292 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:18,292 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:18,329 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:18,334 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:18,336 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:18,336 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:18,337 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:18,337 - hmcfa - DEBUG - Iteration 23 - ELBO - nan
+2024-09-15 12:44:18,337 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:18,337 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:18,429 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:18,429 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:18,430 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:18,430 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:18,465 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:18,470 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:18,472 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:18,472 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:18,472 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:18,472 - hmcfa - DEBUG - Iteration 24 - ELBO - nan
+2024-09-15 12:44:18,472 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:18,473 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:18,564 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:18,564 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:18,565 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:18,565 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:18,602 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:18,606 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:18,608 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:18,608 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:18,608 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:18,609 - hmcfa - DEBUG - Iteration 25 - ELBO - nan
+2024-09-15 12:44:18,609 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:18,609 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:18,699 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:18,699 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:18,700 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:18,700 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:18,736 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:18,740 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:18,742 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:18,742 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:18,742 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:18,743 - hmcfa - DEBUG - Iteration 26 - ELBO - nan
+2024-09-15 12:44:18,743 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:18,743 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:18,832 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:18,833 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:18,833 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:18,833 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:18,870 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:18,875 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:18,877 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:18,877 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:18,877 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:18,878 - hmcfa - DEBUG - Iteration 27 - ELBO - nan
+2024-09-15 12:44:18,878 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:18,878 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:18,969 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:18,969 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:18,970 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:18,970 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:19,007 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:19,011 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:19,013 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:19,013 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:19,014 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:19,014 - hmcfa - DEBUG - Iteration 28 - ELBO - nan
+2024-09-15 12:44:19,014 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:19,014 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:19,104 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:19,105 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:19,105 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:19,105 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:19,142 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:19,146 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:19,148 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:19,148 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:19,148 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:19,148 - hmcfa - DEBUG - Iteration 29 - ELBO - nan
+2024-09-15 12:44:19,148 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:19,149 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:19,238 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:19,238 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:19,239 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:19,239 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:19,276 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:19,280 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:19,282 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:19,282 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:19,282 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:19,283 - hmcfa - DEBUG - Iteration 30 - ELBO - nan
+2024-09-15 12:44:19,283 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:19,283 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:19,375 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:19,375 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:19,376 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:19,376 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:19,411 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:19,416 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:19,418 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:19,418 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:19,418 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:19,419 - hmcfa - DEBUG - Iteration 31 - ELBO - nan
+2024-09-15 12:44:19,419 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:19,419 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:19,510 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:19,510 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:19,511 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:19,511 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:19,547 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:19,551 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:19,553 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:19,554 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:19,554 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:19,554 - hmcfa - DEBUG - Iteration 32 - ELBO - nan
+2024-09-15 12:44:19,554 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:19,554 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:19,646 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:19,647 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:19,647 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:19,648 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:19,683 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:19,687 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:19,690 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:19,690 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:19,690 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:19,690 - hmcfa - DEBUG - Iteration 33 - ELBO - nan
+2024-09-15 12:44:19,690 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:19,690 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:19,780 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:19,780 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:19,781 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:19,781 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:19,818 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:19,822 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:19,824 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:19,824 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:19,824 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:19,824 - hmcfa - DEBUG - Iteration 34 - ELBO - nan
+2024-09-15 12:44:19,825 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:19,825 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:19,917 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:19,917 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:19,918 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:19,918 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:19,954 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:19,958 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:19,960 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:19,961 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:19,961 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:19,961 - hmcfa - DEBUG - Iteration 35 - ELBO - nan
+2024-09-15 12:44:19,961 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:19,961 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:20,051 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:20,051 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:20,052 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:20,052 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:20,089 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:20,094 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:20,096 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:20,096 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:20,096 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:20,096 - hmcfa - DEBUG - Iteration 36 - ELBO - nan
+2024-09-15 12:44:20,097 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:20,097 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:20,186 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:20,187 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:20,187 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:20,188 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:20,224 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:20,228 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:20,231 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:20,231 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:20,231 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:20,231 - hmcfa - DEBUG - Iteration 37 - ELBO - nan
+2024-09-15 12:44:20,232 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:20,232 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:20,323 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:20,323 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:20,324 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:20,324 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:20,361 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:20,366 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:20,368 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:20,368 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:20,369 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:20,369 - hmcfa - DEBUG - Iteration 38 - ELBO - nan
+2024-09-15 12:44:20,369 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:20,369 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:20,458 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:20,458 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:20,459 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:20,459 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:20,496 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:20,501 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:20,503 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:20,503 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:20,503 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:20,503 - hmcfa - DEBUG - Iteration 39 - ELBO - nan
+2024-09-15 12:44:20,503 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:20,503 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:20,593 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:20,593 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:20,594 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:20,594 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:20,630 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:20,635 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:20,637 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:20,638 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:20,638 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:20,638 - hmcfa - DEBUG - Iteration 40 - ELBO - nan
+2024-09-15 12:44:20,638 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:20,638 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:20,728 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:20,728 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:20,729 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:20,729 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:20,767 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:20,771 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:20,773 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:20,773 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:20,773 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:20,773 - hmcfa - DEBUG - Iteration 41 - ELBO - nan
+2024-09-15 12:44:20,774 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:20,774 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:20,864 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:20,864 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:20,865 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:20,865 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:20,901 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:20,906 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:20,908 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:20,908 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:20,908 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:20,908 - hmcfa - DEBUG - Iteration 42 - ELBO - nan
+2024-09-15 12:44:20,908 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:20,908 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:20,998 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:20,999 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:20,999 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:20,999 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:21,035 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:21,039 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:21,041 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:21,042 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:21,042 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:21,042 - hmcfa - DEBUG - Iteration 43 - ELBO - nan
+2024-09-15 12:44:21,042 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:21,042 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:21,132 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:21,132 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:21,133 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:21,133 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:21,171 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:21,175 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:21,177 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:21,177 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:21,177 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:21,178 - hmcfa - DEBUG - Iteration 44 - ELBO - nan
+2024-09-15 12:44:21,178 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:21,178 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:21,271 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:21,271 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:21,272 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:21,272 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:21,308 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:21,312 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:21,314 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:21,314 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:21,314 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:21,315 - hmcfa - DEBUG - Iteration 45 - ELBO - nan
+2024-09-15 12:44:21,315 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:21,315 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:21,405 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:21,405 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:21,406 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:21,406 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:21,442 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:21,446 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:21,448 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:21,448 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:21,448 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:21,448 - hmcfa - DEBUG - Iteration 46 - ELBO - nan
+2024-09-15 12:44:21,449 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:21,449 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:21,540 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:21,540 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:21,541 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:21,541 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:21,577 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:21,582 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:21,584 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:21,584 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:21,584 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:21,585 - hmcfa - DEBUG - Iteration 47 - ELBO - nan
+2024-09-15 12:44:21,585 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:21,585 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:21,678 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:21,678 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:21,679 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:21,679 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:21,716 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:21,721 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:21,723 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:21,723 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:21,723 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:21,724 - hmcfa - DEBUG - Iteration 48 - ELBO - nan
+2024-09-15 12:44:21,724 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:21,724 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:21,813 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:21,814 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:21,814 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:21,814 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:21,851 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:21,855 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:21,858 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:21,858 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:21,858 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:21,858 - hmcfa - DEBUG - Iteration 49 - ELBO - nan
+2024-09-15 12:44:21,858 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:21,858 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:21,948 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:21,949 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:21,949 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:21,949 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:21,986 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:21,990 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:21,993 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:21,993 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:21,993 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:21,993 - hmcfa - DEBUG - Iteration 50 - ELBO - nan
+2024-09-15 12:44:21,993 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:21,993 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:22,085 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:22,085 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:22,086 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:22,086 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:22,124 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:22,128 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:22,130 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:22,131 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:22,131 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:22,131 - hmcfa - DEBUG - Iteration 51 - ELBO - nan
+2024-09-15 12:44:22,131 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:22,131 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:22,222 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:22,222 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:22,222 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:22,223 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:22,260 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:22,265 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:22,267 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:22,267 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:22,267 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:22,267 - hmcfa - DEBUG - Iteration 52 - ELBO - nan
+2024-09-15 12:44:22,268 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:22,268 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:22,358 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:22,359 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:22,359 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:22,359 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:22,396 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:22,401 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:22,403 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:22,403 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:22,403 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:22,404 - hmcfa - DEBUG - Iteration 53 - ELBO - nan
+2024-09-15 12:44:22,404 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:22,404 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:22,494 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:22,494 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:22,495 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:22,495 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:22,532 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:22,536 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:22,538 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:22,539 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:22,539 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:22,539 - hmcfa - DEBUG - Iteration 54 - ELBO - nan
+2024-09-15 12:44:22,539 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:22,539 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:22,629 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:22,629 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:22,630 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:22,630 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:22,667 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:22,672 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:22,674 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:22,674 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:22,674 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:22,674 - hmcfa - DEBUG - Iteration 55 - ELBO - nan
+2024-09-15 12:44:22,674 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:22,674 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:22,765 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:22,765 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:22,766 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:22,766 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:22,802 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:22,806 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:22,808 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:22,809 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:22,809 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:22,809 - hmcfa - DEBUG - Iteration 56 - ELBO - nan
+2024-09-15 12:44:22,809 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:22,809 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:44:22,899 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:44:22,899 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:44:22,900 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:44:22,900 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:44:22,935 - hmcfa - DEBUG - Updated L
+2024-09-15 12:44:22,940 - hmcfa - DEBUG - Updated F
+2024-09-15 12:44:22,942 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:44:22,942 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:44:22,942 - hmcfa - DEBUG - Updated A
+2024-09-15 12:44:22,942 - hmcfa - DEBUG - Iteration 57 - ELBO - nan
+2024-09-15 12:44:22,943 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:44:22,943 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:46:51,199 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:46:51,199 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:46:51,458 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:46:51,458 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:46:51,458 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:46:51,459 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:46:51,498 - hmcfa - DEBUG - Updated L
+2024-09-15 12:46:51,503 - hmcfa - DEBUG - Updated F
+2024-09-15 12:46:51,505 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:46:51,506 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:46:51,506 - hmcfa - DEBUG - Updated A
+2024-09-15 12:46:51,506 - hmcfa - INFO - Iteration 0 - ELBO - -1840.3186
+2024-09-15 12:46:51,506 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:46:51,506 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:46:51,672 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:46:51,673 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:46:51,673 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:46:51,673 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:46:51,713 - hmcfa - DEBUG - Updated L
+2024-09-15 12:46:51,717 - hmcfa - DEBUG - Updated F
+2024-09-15 12:46:51,719 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:46:51,719 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:46:51,719 - hmcfa - DEBUG - Updated A
+2024-09-15 12:46:51,720 - hmcfa - INFO - Iteration 1 - ELBO - 552.5289
+2024-09-15 12:46:51,720 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:46:51,720 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:46:51,895 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:46:51,895 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:46:51,896 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:46:51,896 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:46:51,934 - hmcfa - DEBUG - Updated L
+2024-09-15 12:46:51,939 - hmcfa - DEBUG - Updated F
+2024-09-15 12:46:51,942 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:46:51,942 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:46:51,942 - hmcfa - DEBUG - Updated A
+2024-09-15 12:46:51,942 - hmcfa - INFO - Iteration 2 - ELBO - nan
+2024-09-15 12:46:51,942 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:46:51,943 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:46:52,216 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:46:52,216 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:46:52,217 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:46:52,217 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:46:52,255 - hmcfa - DEBUG - Updated L
+2024-09-15 12:46:52,260 - hmcfa - DEBUG - Updated F
+2024-09-15 12:46:52,262 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:46:52,262 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:46:52,263 - hmcfa - DEBUG - Updated A
+2024-09-15 12:46:52,263 - hmcfa - INFO - Iteration 3 - ELBO - nan
+2024-09-15 12:46:52,263 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:46:52,263 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:46:52,355 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:46:52,355 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:46:52,356 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:46:52,356 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:46:52,393 - hmcfa - DEBUG - Updated L
+2024-09-15 12:46:52,397 - hmcfa - DEBUG - Updated F
+2024-09-15 12:46:52,399 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:46:52,399 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:46:52,399 - hmcfa - DEBUG - Updated A
+2024-09-15 12:46:52,400 - hmcfa - INFO - Iteration 4 - ELBO - nan
+2024-09-15 12:46:52,400 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:46:52,400 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:46:52,492 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:46:52,492 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:46:52,493 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:46:52,493 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:46:52,529 - hmcfa - DEBUG - Updated L
+2024-09-15 12:46:52,534 - hmcfa - DEBUG - Updated F
+2024-09-15 12:46:52,536 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:46:52,536 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:46:52,536 - hmcfa - DEBUG - Updated A
+2024-09-15 12:46:52,536 - hmcfa - INFO - Iteration 5 - ELBO - nan
+2024-09-15 12:46:52,536 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:46:52,537 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:46:52,628 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:46:52,628 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:46:52,629 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:46:52,629 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:46:52,664 - hmcfa - DEBUG - Updated L
+2024-09-15 12:46:52,669 - hmcfa - DEBUG - Updated F
+2024-09-15 12:46:52,671 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:46:52,671 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:46:52,671 - hmcfa - DEBUG - Updated A
+2024-09-15 12:46:52,671 - hmcfa - INFO - Iteration 6 - ELBO - nan
+2024-09-15 12:46:52,671 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:46:52,671 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:46:52,762 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:46:52,762 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:46:52,763 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:46:52,763 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:46:52,798 - hmcfa - DEBUG - Updated L
+2024-09-15 12:46:52,802 - hmcfa - DEBUG - Updated F
+2024-09-15 12:46:52,804 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:46:52,805 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:46:52,805 - hmcfa - DEBUG - Updated A
+2024-09-15 12:46:52,805 - hmcfa - INFO - Iteration 7 - ELBO - nan
+2024-09-15 12:46:52,805 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:46:52,805 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:46:52,897 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:46:52,897 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:46:52,898 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:46:52,898 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:46:52,933 - hmcfa - DEBUG - Updated L
+2024-09-15 12:46:52,937 - hmcfa - DEBUG - Updated F
+2024-09-15 12:46:52,939 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:46:52,940 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:46:52,940 - hmcfa - DEBUG - Updated A
+2024-09-15 12:46:52,940 - hmcfa - INFO - Iteration 8 - ELBO - nan
+2024-09-15 12:46:52,940 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:46:52,940 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:46:53,031 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:46:53,031 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:46:53,032 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:46:53,032 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:46:53,068 - hmcfa - DEBUG - Updated L
+2024-09-15 12:46:53,072 - hmcfa - DEBUG - Updated F
+2024-09-15 12:46:53,074 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:46:53,074 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:46:53,075 - hmcfa - DEBUG - Updated A
+2024-09-15 12:46:53,075 - hmcfa - INFO - Iteration 9 - ELBO - nan
+2024-09-15 12:46:53,075 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:46:53,075 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:46:53,165 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:46:53,165 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:46:53,166 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:46:53,166 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:46:53,203 - hmcfa - DEBUG - Updated L
+2024-09-15 12:46:53,208 - hmcfa - DEBUG - Updated F
+2024-09-15 12:46:53,211 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:46:53,211 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:46:53,211 - hmcfa - DEBUG - Updated A
+2024-09-15 12:46:53,211 - hmcfa - INFO - Iteration 10 - ELBO - nan
+2024-09-15 12:46:53,212 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:46:53,212 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:46:53,303 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:46:53,303 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:46:53,304 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:46:53,304 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:46:53,339 - hmcfa - DEBUG - Updated L
+2024-09-15 12:46:53,344 - hmcfa - DEBUG - Updated F
+2024-09-15 12:46:53,346 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:46:53,346 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:46:53,346 - hmcfa - DEBUG - Updated A
+2024-09-15 12:46:53,346 - hmcfa - INFO - Iteration 11 - ELBO - nan
+2024-09-15 12:46:53,347 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:46:53,347 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:46:53,439 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:46:53,439 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:46:53,440 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:46:53,440 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:46:53,476 - hmcfa - DEBUG - Updated L
+2024-09-15 12:46:53,480 - hmcfa - DEBUG - Updated F
+2024-09-15 12:46:53,482 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:46:53,482 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:46:53,482 - hmcfa - DEBUG - Updated A
+2024-09-15 12:46:53,483 - hmcfa - INFO - Iteration 12 - ELBO - nan
+2024-09-15 12:46:53,483 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:46:53,483 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:46:53,574 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:46:53,574 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:46:53,575 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:46:53,575 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:46:53,611 - hmcfa - DEBUG - Updated L
+2024-09-15 12:46:53,615 - hmcfa - DEBUG - Updated F
+2024-09-15 12:46:53,617 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:46:53,617 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:46:53,617 - hmcfa - DEBUG - Updated A
+2024-09-15 12:46:53,618 - hmcfa - INFO - Iteration 13 - ELBO - nan
+2024-09-15 12:46:53,618 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:46:53,618 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:50:26,551 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:50:26,551 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:50:27,162 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:50:27,162 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:50:27,163 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:50:27,163 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:50:27,204 - hmcfa - DEBUG - Updated L
+2024-09-15 12:50:27,208 - hmcfa - DEBUG - Updated F
+2024-09-15 12:50:27,211 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:50:27,211 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:50:27,211 - hmcfa - DEBUG - Updated A
+2024-09-15 12:50:27,211 - hmcfa - INFO - Iteration 0 - ELBO - -1281.0080
+2024-09-15 12:50:27,212 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:50:27,212 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:50:27,488 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:50:27,488 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:50:27,489 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:50:27,489 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:50:27,526 - hmcfa - DEBUG - Updated L
+2024-09-15 12:50:27,530 - hmcfa - DEBUG - Updated F
+2024-09-15 12:50:27,532 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:50:27,533 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:50:27,533 - hmcfa - DEBUG - Updated A
+2024-09-15 12:50:27,533 - hmcfa - INFO - Iteration 1 - ELBO - -1506.6598
+2024-09-15 12:50:27,533 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:50:27,533 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:50:27,718 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:50:27,718 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:50:27,719 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:50:27,719 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:50:27,757 - hmcfa - DEBUG - Updated L
+2024-09-15 12:50:27,761 - hmcfa - DEBUG - Updated F
+2024-09-15 12:50:27,763 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:50:27,764 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:50:27,764 - hmcfa - DEBUG - Updated A
+2024-09-15 12:50:27,764 - hmcfa - INFO - Iteration 2 - ELBO - -933.2633
+2024-09-15 12:50:27,764 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:50:27,764 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:50:27,930 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:50:27,930 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:50:27,931 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:50:27,931 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:50:27,968 - hmcfa - DEBUG - Updated L
+2024-09-15 12:50:27,972 - hmcfa - DEBUG - Updated F
+2024-09-15 12:50:27,975 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:50:27,975 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:50:27,975 - hmcfa - DEBUG - Updated A
+2024-09-15 12:50:27,975 - hmcfa - INFO - Iteration 3 - ELBO - 5095.1957
+2024-09-15 12:50:27,976 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:50:27,976 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:50:28,140 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:50:28,140 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:50:28,141 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:50:28,141 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:50:28,178 - hmcfa - DEBUG - Updated L
+2024-09-15 12:50:28,182 - hmcfa - DEBUG - Updated F
+2024-09-15 12:50:28,184 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:50:28,184 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:50:28,184 - hmcfa - DEBUG - Updated A
+2024-09-15 12:50:28,185 - hmcfa - INFO - Iteration 4 - ELBO - 304.9887
+2024-09-15 12:50:28,185 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:50:28,185 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:50:28,351 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:50:28,352 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:50:28,352 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:50:28,352 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:50:28,391 - hmcfa - DEBUG - Updated L
+2024-09-15 12:50:28,396 - hmcfa - DEBUG - Updated F
+2024-09-15 12:50:28,398 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:50:28,398 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:50:28,398 - hmcfa - DEBUG - Updated A
+2024-09-15 12:50:28,398 - hmcfa - INFO - Iteration 5 - ELBO - 2128.0026
+2024-09-15 12:50:28,398 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:50:28,398 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:50:28,562 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:50:28,562 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:50:28,562 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:50:28,562 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:50:28,602 - hmcfa - DEBUG - Updated L
+2024-09-15 12:50:28,606 - hmcfa - DEBUG - Updated F
+2024-09-15 12:50:28,608 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:50:28,608 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:50:28,608 - hmcfa - DEBUG - Updated A
+2024-09-15 12:50:28,609 - hmcfa - INFO - Iteration 6 - ELBO - nan
+2024-09-15 12:50:28,609 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:50:28,609 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:50:28,834 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:50:28,834 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:50:28,835 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:50:28,835 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:50:28,873 - hmcfa - DEBUG - Updated L
+2024-09-15 12:50:28,878 - hmcfa - DEBUG - Updated F
+2024-09-15 12:50:28,880 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:50:28,880 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:50:28,880 - hmcfa - DEBUG - Updated A
+2024-09-15 12:50:28,880 - hmcfa - INFO - Iteration 7 - ELBO - nan
+2024-09-15 12:50:28,880 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:50:28,880 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:50:28,970 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:50:28,970 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:50:28,971 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:50:28,971 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:50:29,007 - hmcfa - DEBUG - Updated L
+2024-09-15 12:50:29,011 - hmcfa - DEBUG - Updated F
+2024-09-15 12:50:29,014 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:50:29,014 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:50:29,014 - hmcfa - DEBUG - Updated A
+2024-09-15 12:50:29,014 - hmcfa - INFO - Iteration 8 - ELBO - nan
+2024-09-15 12:50:29,014 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:50:29,015 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:50:29,106 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:50:29,106 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:50:29,107 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:50:29,107 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:50:29,142 - hmcfa - DEBUG - Updated L
+2024-09-15 12:50:29,147 - hmcfa - DEBUG - Updated F
+2024-09-15 12:50:29,149 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:50:29,149 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:50:29,149 - hmcfa - DEBUG - Updated A
+2024-09-15 12:50:29,149 - hmcfa - INFO - Iteration 9 - ELBO - nan
+2024-09-15 12:50:29,150 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:50:29,150 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:50:29,241 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:50:29,242 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:50:29,242 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:50:29,242 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:50:29,278 - hmcfa - DEBUG - Updated L
+2024-09-15 12:50:29,283 - hmcfa - DEBUG - Updated F
+2024-09-15 12:50:29,285 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:50:29,285 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:50:29,286 - hmcfa - DEBUG - Updated A
+2024-09-15 12:50:29,286 - hmcfa - INFO - Iteration 10 - ELBO - nan
+2024-09-15 12:50:29,286 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:50:29,286 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:50:29,384 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:50:29,384 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:50:29,384 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:50:29,385 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:50:29,421 - hmcfa - DEBUG - Updated L
+2024-09-15 12:50:29,425 - hmcfa - DEBUG - Updated F
+2024-09-15 12:50:29,427 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:50:29,427 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:50:29,427 - hmcfa - DEBUG - Updated A
+2024-09-15 12:50:29,428 - hmcfa - INFO - Iteration 11 - ELBO - nan
+2024-09-15 12:50:29,428 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:50:29,428 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:50:29,518 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:50:29,518 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:50:29,519 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:50:29,519 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:50:29,555 - hmcfa - DEBUG - Updated L
+2024-09-15 12:50:29,559 - hmcfa - DEBUG - Updated F
+2024-09-15 12:50:29,561 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:50:29,562 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:50:29,562 - hmcfa - DEBUG - Updated A
+2024-09-15 12:50:29,562 - hmcfa - INFO - Iteration 12 - ELBO - nan
+2024-09-15 12:50:29,562 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:50:29,562 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:50:29,653 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:50:29,653 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:50:29,654 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:50:29,654 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:50:29,689 - hmcfa - DEBUG - Updated L
+2024-09-15 12:50:29,694 - hmcfa - DEBUG - Updated F
+2024-09-15 12:50:29,696 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:50:29,696 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:50:29,696 - hmcfa - DEBUG - Updated A
+2024-09-15 12:50:29,697 - hmcfa - INFO - Iteration 13 - ELBO - nan
+2024-09-15 12:50:29,697 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:50:29,697 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:50:29,788 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:50:29,788 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:50:29,789 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:50:29,789 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:50:29,826 - hmcfa - DEBUG - Updated L
+2024-09-15 12:50:29,831 - hmcfa - DEBUG - Updated F
+2024-09-15 12:50:29,833 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:50:29,833 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:50:29,833 - hmcfa - DEBUG - Updated A
+2024-09-15 12:50:29,833 - hmcfa - INFO - Iteration 14 - ELBO - nan
+2024-09-15 12:50:29,833 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:50:29,833 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:50:29,925 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:50:29,925 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:50:29,926 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:50:29,926 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:50:29,963 - hmcfa - DEBUG - Updated L
+2024-09-15 12:50:29,967 - hmcfa - DEBUG - Updated F
+2024-09-15 12:50:29,969 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:50:29,969 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:50:29,969 - hmcfa - DEBUG - Updated A
+2024-09-15 12:50:29,970 - hmcfa - INFO - Iteration 15 - ELBO - nan
+2024-09-15 12:50:29,970 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:50:29,970 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:50:30,060 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:50:30,060 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:50:30,061 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:50:30,061 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:50:30,097 - hmcfa - DEBUG - Updated L
+2024-09-15 12:50:30,101 - hmcfa - DEBUG - Updated F
+2024-09-15 12:50:30,104 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:50:30,104 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:50:30,104 - hmcfa - DEBUG - Updated A
+2024-09-15 12:50:30,104 - hmcfa - INFO - Iteration 16 - ELBO - nan
+2024-09-15 12:50:30,104 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:50:30,104 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:50:30,193 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:50:30,193 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:50:30,194 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:50:30,194 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:50:30,231 - hmcfa - DEBUG - Updated L
+2024-09-15 12:50:30,235 - hmcfa - DEBUG - Updated F
+2024-09-15 12:50:30,237 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:50:30,237 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:50:30,237 - hmcfa - DEBUG - Updated A
+2024-09-15 12:50:30,237 - hmcfa - INFO - Iteration 17 - ELBO - nan
+2024-09-15 12:50:30,238 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:50:30,238 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:50:30,329 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:50:30,329 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:50:30,330 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:50:30,330 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:50:30,367 - hmcfa - DEBUG - Updated L
+2024-09-15 12:50:30,372 - hmcfa - DEBUG - Updated F
+2024-09-15 12:50:30,374 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:50:30,374 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:50:30,374 - hmcfa - DEBUG - Updated A
+2024-09-15 12:50:30,374 - hmcfa - INFO - Iteration 18 - ELBO - nan
+2024-09-15 12:50:30,375 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:50:30,375 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:50:30,466 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:50:30,466 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:50:30,467 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:50:30,467 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:50:30,502 - hmcfa - DEBUG - Updated L
+2024-09-15 12:50:30,506 - hmcfa - DEBUG - Updated F
+2024-09-15 12:50:30,508 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:50:30,508 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:50:30,509 - hmcfa - DEBUG - Updated A
+2024-09-15 12:50:30,509 - hmcfa - INFO - Iteration 19 - ELBO - nan
+2024-09-15 12:50:30,509 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:50:30,509 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:50:55,255 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:50:55,256 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:50:55,466 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:50:55,466 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:50:55,467 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:50:55,467 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:50:55,508 - hmcfa - DEBUG - Updated L
+2024-09-15 12:50:55,514 - hmcfa - DEBUG - Updated F
+2024-09-15 12:50:55,518 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:50:55,518 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:50:55,518 - hmcfa - DEBUG - Updated A
+2024-09-15 12:50:55,519 - hmcfa - INFO - Iteration 0 - ELBO - -1494.6788
+2024-09-15 12:50:55,519 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:50:55,519 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:50:55,705 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:50:55,705 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:50:55,706 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:50:55,706 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:50:55,744 - hmcfa - DEBUG - Updated L
+2024-09-15 12:50:55,750 - hmcfa - DEBUG - Updated F
+2024-09-15 12:50:55,753 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:50:55,753 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:50:55,754 - hmcfa - DEBUG - Updated A
+2024-09-15 12:50:55,754 - hmcfa - INFO - Iteration 1 - ELBO - 3733.7771
+2024-09-15 12:50:55,754 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:50:55,754 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:50:55,975 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:50:55,975 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:50:55,976 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:50:55,976 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:50:56,014 - hmcfa - DEBUG - Updated L
+2024-09-15 12:50:56,020 - hmcfa - DEBUG - Updated F
+2024-09-15 12:50:56,024 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:50:56,024 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:50:56,024 - hmcfa - DEBUG - Updated A
+2024-09-15 12:50:56,025 - hmcfa - INFO - Iteration 2 - ELBO - nan
+2024-09-15 12:50:56,025 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:50:56,025 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:50:56,326 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:50:56,326 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:50:56,327 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:50:56,327 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:50:56,364 - hmcfa - DEBUG - Updated L
+2024-09-15 12:50:56,370 - hmcfa - DEBUG - Updated F
+2024-09-15 12:50:56,373 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:50:56,373 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:50:56,373 - hmcfa - DEBUG - Updated A
+2024-09-15 12:50:56,374 - hmcfa - INFO - Iteration 3 - ELBO - nan
+2024-09-15 12:50:56,374 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:50:56,374 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:50:56,465 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:50:56,466 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:50:56,466 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:50:56,467 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:50:56,504 - hmcfa - DEBUG - Updated L
+2024-09-15 12:50:56,509 - hmcfa - DEBUG - Updated F
+2024-09-15 12:50:56,512 - hmcfa - DEBUG - Updated tau
+2024-09-15 12:50:56,512 - hmcfa - DEBUG - Updated alpha
+2024-09-15 12:50:56,512 - hmcfa - DEBUG - Updated A
+2024-09-15 12:50:56,513 - hmcfa - INFO - Iteration 4 - ELBO - nan
+2024-09-15 12:57:25,940 - hmcfa - DEBUG - Performing local updates
+2024-09-15 12:57:25,940 - hmcfa - DEBUG - Performing V step
+2024-09-15 12:57:26,616 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 12:57:26,616 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 12:57:26,617 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 12:57:26,617 - hmcfa - DEBUG - Performing global updates
+2024-09-15 12:57:26,660 - hmcfa - DEBUG - Updated L
+2024-09-15 12:57:26,666 - hmcfa - DEBUG - Updated F
+2024-09-15 13:01:16,041 - hmcfa - DEBUG - Updated tau
+2024-09-15 13:01:16,042 - hmcfa - DEBUG - Updated alpha
+2024-09-15 13:01:16,042 - hmcfa - DEBUG - Updated A
+2024-09-15 13:01:16,043 - hmcfa - INFO - Iteration 0 - ELBO - -2348.3907
+2024-09-15 13:01:16,043 - hmcfa - DEBUG - Performing local updates
+2024-09-15 13:01:16,044 - hmcfa - DEBUG - Performing V step
+2024-09-15 13:01:16,512 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 13:01:16,512 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 13:01:16,513 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 13:01:16,513 - hmcfa - DEBUG - Performing global updates
+2024-09-15 13:01:16,552 - hmcfa - DEBUG - Updated L
+2024-09-15 13:01:16,557 - hmcfa - DEBUG - Updated F
+2024-09-15 13:04:56,683 - hmcfa - DEBUG - Updated tau
+2024-09-15 13:04:56,684 - hmcfa - DEBUG - Updated alpha
+2024-09-15 13:04:56,684 - hmcfa - DEBUG - Updated A
+2024-09-15 13:04:56,685 - hmcfa - INFO - Iteration 1 - ELBO - -3581.0449
+2024-09-15 13:04:56,685 - hmcfa - DEBUG - Performing local updates
+2024-09-15 13:04:56,685 - hmcfa - DEBUG - Performing V step
+2024-09-15 13:04:56,976 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 13:04:56,977 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 13:04:56,978 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 13:04:56,978 - hmcfa - DEBUG - Performing global updates
+2024-09-15 13:04:57,016 - hmcfa - DEBUG - Updated L
+2024-09-15 13:04:57,021 - hmcfa - DEBUG - Updated F
+2024-09-15 13:04:57,025 - hmcfa - DEBUG - Updated tau
+2024-09-15 13:04:57,025 - hmcfa - DEBUG - Updated alpha
+2024-09-15 13:04:57,025 - hmcfa - DEBUG - Updated A
+2024-09-15 13:04:57,026 - hmcfa - INFO - Iteration 2 - ELBO - -4547.9182
+2024-09-15 13:04:57,026 - hmcfa - DEBUG - Performing local updates
+2024-09-15 13:04:57,026 - hmcfa - DEBUG - Performing V step
+2024-09-15 13:04:57,235 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 13:04:57,235 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 13:04:57,236 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 13:04:57,236 - hmcfa - DEBUG - Performing global updates
+2024-09-15 13:04:57,275 - hmcfa - DEBUG - Updated L
+2024-09-15 13:04:57,281 - hmcfa - DEBUG - Updated F
+2024-09-15 13:04:57,284 - hmcfa - DEBUG - Updated tau
+2024-09-15 13:04:57,284 - hmcfa - DEBUG - Updated alpha
+2024-09-15 13:04:57,284 - hmcfa - DEBUG - Updated A
+2024-09-15 13:04:57,285 - hmcfa - INFO - Iteration 3 - ELBO - nan
+2024-09-15 13:04:57,285 - hmcfa - DEBUG - Performing local updates
+2024-09-15 13:04:57,286 - hmcfa - DEBUG - Performing V step
+2024-09-15 13:04:57,546 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 13:04:57,546 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 13:04:57,547 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 13:04:57,547 - hmcfa - DEBUG - Performing global updates
+2024-09-15 13:04:57,584 - hmcfa - DEBUG - Updated L
+2024-09-15 13:04:57,590 - hmcfa - DEBUG - Updated F
+2024-09-15 13:04:57,592 - hmcfa - DEBUG - Updated tau
+2024-09-15 13:04:57,593 - hmcfa - DEBUG - Updated alpha
+2024-09-15 13:04:57,593 - hmcfa - DEBUG - Updated A
+2024-09-15 13:04:57,593 - hmcfa - INFO - Iteration 4 - ELBO - nan
+2024-09-15 13:05:06,511 - hmcfa - DEBUG - Performing local updates
+2024-09-15 13:05:06,511 - hmcfa - DEBUG - Performing V step
+2024-09-15 13:05:06,688 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 13:05:06,689 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 13:05:06,690 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 13:05:06,690 - hmcfa - DEBUG - Performing global updates
+2024-09-15 13:05:06,732 - hmcfa - DEBUG - Updated L
+2024-09-15 13:05:06,738 - hmcfa - DEBUG - Updated F
+2024-09-15 13:05:49,616 - hmcfa - DEBUG - Performing local updates
+2024-09-15 13:05:49,616 - hmcfa - DEBUG - Performing V step
+2024-09-15 13:05:49,809 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 13:05:49,809 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 13:05:49,810 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 13:05:49,810 - hmcfa - DEBUG - Performing global updates
+2024-09-15 13:05:49,852 - hmcfa - DEBUG - Updated L
+2024-09-15 13:05:49,858 - hmcfa - DEBUG - Updated F
+2024-09-15 13:05:54,408 - hmcfa - DEBUG - Updated tau
+2024-09-15 13:05:54,409 - hmcfa - DEBUG - Updated alpha
+2024-09-15 13:05:54,409 - hmcfa - DEBUG - Updated A
+2024-09-15 13:05:54,410 - hmcfa - INFO - Iteration 0 - ELBO - -4581.0097
+2024-09-15 13:05:54,410 - hmcfa - DEBUG - Performing local updates
+2024-09-15 13:05:54,410 - hmcfa - DEBUG - Performing V step
+2024-09-15 13:05:54,608 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 13:05:54,608 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 13:05:54,609 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 13:05:54,609 - hmcfa - DEBUG - Performing global updates
+2024-09-15 13:05:54,651 - hmcfa - DEBUG - Updated L
+2024-09-15 13:05:54,656 - hmcfa - DEBUG - Updated F
+2024-09-15 13:05:59,870 - hmcfa - DEBUG - Updated tau
+2024-09-15 13:05:59,872 - hmcfa - DEBUG - Updated alpha
+2024-09-15 13:05:59,872 - hmcfa - DEBUG - Updated A
+2024-09-15 13:05:59,872 - hmcfa - INFO - Iteration 1 - ELBO - -4132.6515
+2024-09-15 13:05:59,873 - hmcfa - DEBUG - Performing local updates
+2024-09-15 13:05:59,873 - hmcfa - DEBUG - Performing V step
+2024-09-15 13:06:00,068 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 13:06:00,068 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 13:06:00,069 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 13:06:00,069 - hmcfa - DEBUG - Performing global updates
+2024-09-15 13:06:00,107 - hmcfa - DEBUG - Updated L
+2024-09-15 13:06:00,112 - hmcfa - DEBUG - Updated F
+2024-09-15 13:09:45,434 - hmcfa - DEBUG - Performing local updates
+2024-09-15 13:09:45,434 - hmcfa - DEBUG - Performing V step
+2024-09-15 13:09:45,784 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 13:09:45,784 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 13:09:45,785 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 13:09:45,785 - hmcfa - DEBUG - Performing global updates
+2024-09-15 13:09:45,825 - hmcfa - DEBUG - Updated L
+2024-09-15 13:09:45,830 - hmcfa - DEBUG - Updated F
+2024-09-15 13:09:49,189 - hmcfa - DEBUG - Updated tau
+2024-09-15 13:09:49,190 - hmcfa - DEBUG - Updated alpha
+2024-09-15 13:09:49,191 - hmcfa - DEBUG - Updated A
+2024-09-15 13:09:49,191 - hmcfa - INFO - Iteration 0 - ELBO - -1110.8114
+2024-09-15 13:09:49,192 - hmcfa - DEBUG - Performing local updates
+2024-09-15 13:09:49,192 - hmcfa - DEBUG - Performing V step
+2024-09-15 13:09:49,443 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 13:09:49,444 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 13:09:49,444 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 13:09:49,445 - hmcfa - DEBUG - Performing global updates
+2024-09-15 13:09:49,484 - hmcfa - DEBUG - Updated L
+2024-09-15 13:09:49,490 - hmcfa - DEBUG - Updated F
+2024-09-15 13:09:51,533 - hmcfa - DEBUG - Updated tau
+2024-09-15 13:09:51,534 - hmcfa - DEBUG - Updated alpha
+2024-09-15 13:09:51,534 - hmcfa - DEBUG - Updated A
+2024-09-15 13:09:51,535 - hmcfa - INFO - Iteration 1 - ELBO - 130.3692
+2024-09-15 13:09:51,535 - hmcfa - DEBUG - Performing local updates
+2024-09-15 13:09:51,535 - hmcfa - DEBUG - Performing V step
+2024-09-15 13:09:51,762 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 13:09:51,763 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 13:09:51,763 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 13:09:51,764 - hmcfa - DEBUG - Performing global updates
+2024-09-15 13:09:51,803 - hmcfa - DEBUG - Updated L
+2024-09-15 13:09:51,809 - hmcfa - DEBUG - Updated F
+2024-09-15 13:10:00,968 - hmcfa - DEBUG - Updated tau
+2024-09-15 13:10:00,969 - hmcfa - DEBUG - Updated alpha
+2024-09-15 13:10:00,969 - hmcfa - DEBUG - Updated A
+2024-09-15 13:10:00,970 - hmcfa - INFO - Iteration 2 - ELBO - 540.9827
+2024-09-15 13:10:00,970 - hmcfa - DEBUG - Performing local updates
+2024-09-15 13:10:00,971 - hmcfa - DEBUG - Performing V step
+2024-09-15 13:10:01,178 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 13:10:01,179 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 13:10:01,179 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 13:10:01,179 - hmcfa - DEBUG - Performing global updates
+2024-09-15 13:10:01,216 - hmcfa - DEBUG - Updated L
+2024-09-15 13:10:01,221 - hmcfa - DEBUG - Updated F
+2024-09-15 13:10:12,827 - hmcfa - DEBUG - Updated tau
+2024-09-15 13:10:12,829 - hmcfa - DEBUG - Updated alpha
+2024-09-15 13:10:12,829 - hmcfa - DEBUG - Updated A
+2024-09-15 13:10:12,830 - hmcfa - INFO - Iteration 3 - ELBO - 6632.3375
+2024-09-15 13:10:12,830 - hmcfa - DEBUG - Performing local updates
+2024-09-15 13:10:12,830 - hmcfa - DEBUG - Performing V step
+2024-09-15 13:10:13,055 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 13:10:13,055 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 13:10:13,056 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 13:10:13,056 - hmcfa - DEBUG - Performing global updates
+2024-09-15 13:10:13,095 - hmcfa - DEBUG - Updated L
+2024-09-15 13:10:13,100 - hmcfa - DEBUG - Updated F
+2024-09-15 13:10:20,681 - hmcfa - DEBUG - Updated tau
+2024-09-15 13:10:20,683 - hmcfa - DEBUG - Updated alpha
+2024-09-15 13:10:20,683 - hmcfa - DEBUG - Updated A
+2024-09-15 13:10:20,683 - hmcfa - INFO - Iteration 4 - ELBO - 821.9643
+2024-09-15 13:10:30,613 - hmcfa - DEBUG - Performing local updates
+2024-09-15 13:10:30,614 - hmcfa - DEBUG - Performing V step
+2024-09-15 13:10:30,785 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 13:10:30,785 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 13:10:30,786 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 13:10:30,786 - hmcfa - DEBUG - Performing global updates
+2024-09-15 13:10:30,829 - hmcfa - DEBUG - Updated L
+2024-09-15 13:10:30,835 - hmcfa - DEBUG - Updated F
+2024-09-15 13:10:34,262 - hmcfa - DEBUG - Updated tau
+2024-09-15 13:10:34,263 - hmcfa - DEBUG - Updated alpha
+2024-09-15 13:10:34,264 - hmcfa - DEBUG - Updated A
+2024-09-15 13:10:34,264 - hmcfa - INFO - Iteration 0 - ELBO - -2020.9940
+2024-09-15 13:10:34,265 - hmcfa - DEBUG - Performing local updates
+2024-09-15 13:10:34,265 - hmcfa - DEBUG - Performing V step
+2024-09-15 13:10:34,440 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 13:10:34,440 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 13:10:34,441 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 13:10:34,441 - hmcfa - DEBUG - Performing global updates
+2024-09-15 13:10:34,479 - hmcfa - DEBUG - Updated L
+2024-09-15 13:10:34,485 - hmcfa - DEBUG - Updated F
+2024-09-15 13:10:57,907 - hmcfa - DEBUG - Updated tau
+2024-09-15 13:10:57,908 - hmcfa - DEBUG - Updated alpha
+2024-09-15 13:10:57,909 - hmcfa - DEBUG - Updated A
+2024-09-15 13:10:57,910 - hmcfa - INFO - Iteration 1 - ELBO - nan
+2024-09-15 13:10:57,910 - hmcfa - DEBUG - Performing local updates
+2024-09-15 13:10:57,910 - hmcfa - DEBUG - Performing V step
+2024-09-15 13:10:58,333 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 13:10:58,333 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 13:10:58,334 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 13:10:58,334 - hmcfa - DEBUG - Performing global updates
+2024-09-15 13:10:58,371 - hmcfa - DEBUG - Updated L
+2024-09-15 13:10:58,376 - hmcfa - DEBUG - Updated F
+2024-09-15 13:11:06,478 - hmcfa - DEBUG - Performing local updates
+2024-09-15 13:11:06,479 - hmcfa - DEBUG - Performing V step
+2024-09-15 13:11:06,652 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 13:11:06,652 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 13:11:06,653 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 13:11:06,653 - hmcfa - DEBUG - Performing global updates
+2024-09-15 13:11:06,693 - hmcfa - DEBUG - Updated L
+2024-09-15 13:11:06,699 - hmcfa - DEBUG - Updated F
+2024-09-15 13:11:10,478 - hmcfa - DEBUG - Updated tau
+2024-09-15 13:11:10,479 - hmcfa - DEBUG - Updated alpha
+2024-09-15 13:11:10,479 - hmcfa - DEBUG - Updated A
+2024-09-15 13:11:10,480 - hmcfa - INFO - Iteration 0 - ELBO - 3299.3774
+2024-09-15 13:11:10,480 - hmcfa - DEBUG - Performing local updates
+2024-09-15 13:11:10,481 - hmcfa - DEBUG - Performing V step
+2024-09-15 13:11:10,653 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 13:11:10,654 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 13:11:10,654 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 13:11:10,655 - hmcfa - DEBUG - Performing global updates
+2024-09-15 13:11:10,693 - hmcfa - DEBUG - Updated L
+2024-09-15 13:11:10,699 - hmcfa - DEBUG - Updated F
+2024-09-15 13:11:12,740 - hmcfa - DEBUG - Updated tau
+2024-09-15 13:11:12,741 - hmcfa - DEBUG - Updated alpha
+2024-09-15 13:11:12,742 - hmcfa - DEBUG - Updated A
+2024-09-15 13:11:12,742 - hmcfa - INFO - Iteration 1 - ELBO - nan
+2024-09-15 13:11:12,743 - hmcfa - DEBUG - Performing local updates
+2024-09-15 13:11:12,743 - hmcfa - DEBUG - Performing V step
+2024-09-15 13:11:13,059 - hmcfa - DEBUG - Updated variational likelihoods and transition matrix
+2024-09-15 13:11:13,059 - hmcfa - DEBUG - Running forward-backward algorithm
+2024-09-15 13:11:13,060 - hmcfa - DEBUG - Updated hidden states
+2024-09-15 13:11:13,061 - hmcfa - DEBUG - Performing global updates
+2024-09-15 13:11:13,100 - hmcfa - DEBUG - Updated L
+2024-09-15 13:11:13,106 - hmcfa - DEBUG - Updated F

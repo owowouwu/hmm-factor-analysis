@@ -4,7 +4,7 @@ import scipy.stats
 from scipy.special import digamma
 from hmcfa.model import HiddenMarkovFA
 import logging
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 
 T = 5
 G = 100
@@ -15,5 +15,5 @@ data = np.random.random(size = (T,G,N))
 fa = HiddenMarkovFA(data = data, n_factors = K, hyperparameters={})
 
 
-fa.run(max_it=1, progress_bar=True)
+fa.run(max_it=5, progress_bar=True)
 

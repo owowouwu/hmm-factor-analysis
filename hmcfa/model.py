@@ -4,7 +4,7 @@ import scipy.stats
 import warnings
 import tqdm
 from tqdm import tqdm
-from scipy.special import digamma, gamma
+from scipy.special import digamma, gamma, gammaln
 from typing import Dict, List, Union
 from numba import njit
 from functools import cached_property
@@ -13,7 +13,7 @@ from opt_einsum import contract
 
 # useful constants to precompute
 LOG_TWOPI = np.log(2 * np.pi)
-
+np.set_printoptions(precision=3, suppress=True)
 
 class HiddenMarkovFA:
 
@@ -93,6 +93,9 @@ class HiddenMarkovFA:
             del self.__dict__['a_over_b_alpha']
 
     @cached_property
+    def y_dot_y(self):
+        return contract('tgn,tgn->tg', self.Y, self.Y)
+    @cached_property
     def weighted_L(self):
         return self.eta * self.mu_L
 
@@ -136,7 +139,6 @@ class HiddenMarkovFA:
         # 'expected' transition probs
         # keep in logspace
         A_variational_new = digamma(self.dirchlet_A) - digamma(self.dirchlet_A.sum(axis=2))[:, :, np.newaxis]
-        print(A_variational_new)
         # likelihoods
 
         # conditional mean
@@ -150,16 +152,14 @@ class HiddenMarkovFA:
             self.Y[np.newaxis, :, :, np.newaxis, :],
             loc = mu_yd_conditional_z,
             scale = sigmas
-        )
-
-        print(cond_likelihoods)
+        ).sum(axis = -1)
 
         return A_variational_new, cond_likelihoods
 
     # Baum Welsh steps
     def M_step(self):
         forward, backward = self.forward_messages(), self.backward_messages()
-        q_z = np.exp(forward + backward)
+        log_q_z = forward + backward
         pairwise_new = np.zeros(self.pairwise.shape)
         for t in range(1, self.T):
             pairwise_new[t - 1] = (
@@ -169,14 +169,17 @@ class HiddenMarkovFA:
             )
 
         # normalise to ensure these are probabilities
+        q_z = np.exp(log_q_z - np.max(log_q_z, axis = -1, keepdims=True))
         normalisation_constants = q_z.sum(axis=-1)
         q_z = q_z / normalisation_constants[:, :, :, np.newaxis]
-        # eta is q_z = 1 / expected value over hidden states
+        # eta is q_z(1) (expected value over hidden states)
         eta_new = q_z[:, :, :, 1]
-        pairwise_normalisations = pairwise_new.sum(axis=(-1, -2))
-        pairwise_new = pairwise_new / pairwise_normalisations[:, :, :, np.newaxis, np.newaxis]
 
-        return eta_new, pairwise_new, normalisation_constants
+        pairwise_new_probs = np.exp(pairwise_new - np.max(pairwise_new, axis = (-1,-2), keepdims=True))
+        pairwise_normalisations = pairwise_new_probs.sum(axis=(-1, -2), keepdims=True)
+        pairwise_new_probs = pairwise_new_probs / pairwise_normalisations
+
+        return eta_new, pairwise_new_probs, normalisation_constants
 
     def forward_messages(self):
         forward = np.ones(shape=(self.T, self.G, self.K, 2))
@@ -296,13 +299,13 @@ class HiddenMarkovFA:
                 (self.a_tau_prior - 1) * (digam_a_tau - np.log(self.b_tau)) -
                 self.a_over_b_tau * self.b_tau_prior +
                 self.a_tau_prior * np.log(self.b_tau_prior) -
-                np.log(gamma(self.a_tau_prior))
+                gammaln(self.a_tau_prior)
         ).sum()
         p_alpha = (
                 (self.a_alpha_prior - 1) * (digam_a_alpha - log_b_alpha) -
                 self.a_over_b_alpha * self.b_alpha_prior +
                 self.a_alpha_prior * np.log(self.b_alpha_prior) -
-                np.log(gamma(self.a_alpha_prior))
+                gammaln(self.a_alpha_prior)
         ).sum()
 
         p_L = 0.5 * (
@@ -315,11 +318,11 @@ class HiddenMarkovFA:
 
         q_F = 0.5 * (self.T * self.K * self.N * (1 + LOG_TWOPI) + np.log(self.sigma2_F.sum()))
         q_tau = (
-                self.a_tau - log_b_tau + np.log(gamma(self.a_tau)) + (1 - self.a_tau) * digam_a_tau
+                self.a_tau - log_b_tau + gammaln(self.a_tau) + (1 - self.a_tau) * digam_a_tau
         ).sum()
 
         q_alpha = (
-                self.a_alpha - log_b_alpha + np.log(gamma(self.a_alpha)) + (1 - self.a_alpha) * digam_a_alpha
+                self.a_alpha - log_b_alpha + gammaln(self.a_alpha) + (1 - self.a_alpha) * digam_a_alpha
         ).sum()
 
         q_L = 0.5 * (self.eta * np.log(2 * np.pi * self.sigma2_L) + self.eta).sum()
@@ -332,11 +335,11 @@ class HiddenMarkovFA:
                 p_F + p_tau + p_alpha + p_L + q_F + q_alpha + q_tau + q_L + q_Z + p_q_A
         )
 
-    # full algorithm
+    # full algorithm        print(pairwise_new_probs)
 
     def run(self, eps: float = 1e-3, max_it: int = 1000, progress_bar: bool = False):
         elbo_converged = False
-        current_elbo = -np.inf
+        current_elbo = np.inf
         elbos = np.zeros(max_it)
         converged = False
         for i in tqdm(range(max_it), disable=not progress_bar):
@@ -373,7 +376,7 @@ class HiddenMarkovFA:
 
             # compute elbo
             new_elbo = self.elbo()
-            self.logger.debug(f"Iteration {i} - ELBO - {new_elbo:.4f}")
+            self.logger.info(f"Iteration {i} - ELBO - {new_elbo:.4f}")
             elbos[i] = new_elbo
             delta = np.abs(current_elbo - new_elbo)
 
