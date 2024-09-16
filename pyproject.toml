@@ -26,7 +26,8 @@ dependencies = [
     "numpy",
     "scipy",
     "opt_einsum",
-    "tqdm"
+    "tqdm",
+    "h5py"
 ]
 
 [project.optional-dependencies]

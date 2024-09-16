@@ -16,6 +16,7 @@ renv/
 .Rhistory
 output/
 .idea/
+.Rdata
 
 *.ipynb
 !nb/no_change_experiment.ipynb

@@ -3,6 +3,7 @@ import scipy as sp
 import scipy.stats
 import warnings
 import tqdm
+import h5py
 from tqdm import tqdm
 from scipy.special import digamma, gamma, gammaln
 from typing import Dict, List, Union
@@ -61,6 +62,37 @@ class HiddenMarkovFA:
         self.pairwise  = self.pairwise / self.pairwise.sum(axis = (-1, -2))[:,:,:, np.newaxis, np.newaxis]
 
         self.normalisations = np.zeros(shape=(self.T, self.G, self.K))
+
+    def save(self, filename, include_hmm = False):
+        if not include_hmm:
+            exclude_keys = {'normalisations', 'pairwise', 'variational_likelihoods', 'A_variational'}
+        else:
+            exclude_keys = {}
+        arrays = {
+            'mu_F': self.mu_F,
+            'sigma2_F': self.sigma2_F,
+            'mu_L': self.mu_L,
+            'sigma2_L': self.sigma2_L,
+            'a_tau': self.a_tau,
+            'b_tau': self.b_tau,
+            'a_alpha': self.a_alpha,
+            'b_alpha': self.b_alpha,
+            'dirchlet_A': self.dirchlet_A,
+            'A_variational': self.A_variational,
+            'variational_likelihoods': self.variational_likelihoods,
+            'eta': self.eta,
+            'pairwise': self.pairwise,
+            'normalisations': self.normalisations
+        }
+
+        with h5py.File(filename, 'w') as hf:
+            for key, array in arrays.items():
+                if key not in exclude_keys:
+                    hf.create_dataset(key, data=array)
+                    self.logger.debug(f"Saved array '{key}' to {filename}")
+                else:
+                    self.logger.debug(f"Excluded array '{key}' from saving.")
+        pass
 
     # cached intermediate terms
     def _clean_cache_L(self):
@@ -338,64 +370,73 @@ class HiddenMarkovFA:
 
     # full algorithm        print(pairwise_new_probs)
 
-    def run(self, eps: float = 1e-4, max_it: int = 1000, progress_bar: bool = False):
+    def run(self, eps: float = 1e-4, max_it: int = 1000, max_tries: int = 1, progress_bar: bool = False):
         elbo_converged = False
         current_elbo = np.inf
         elbos = np.zeros(max_it)
         converged = False
-        for i in tqdm(range(max_it), disable=not progress_bar):
-            # local updates
-            self.logger.debug("Performing local updates")
-            self.logger.debug("Performing V step")
-            self.A_variational, self.variational_likelihoods = self.V_step()
+        retries = 1
+        while retries < max_tries:
+            for i in tqdm(range(max_it), disable=not progress_bar):
+                # local updates
+                self.logger.debug("Performing local updates")
+                self.logger.debug("Performing V step")
+                self.A_variational, self.variational_likelihoods = self.V_step()
 
-            self.logger.debug("Updated variational likelihoods and transition matrix")
+                self.logger.debug("Updated variational likelihoods and transition matrix")
 
-            self.logger.debug("Running forward-backward algorithm")
-            self.eta, self.pairwise, self.normalisations = self.M_step()
-            self.logger.debug("Updated hidden states")
-            # update 'emission' parameters
-            self.logger.debug("Performing global updates")
-            self.mu_L, self.sigma2_L = self.update_L()
-            self.logger.debug("Updated L")
-            self._clean_cache_L()
+                self.logger.debug("Running forward-backward algorithm")
+                self.eta, self.pairwise, self.normalisations = self.M_step()
+                self.logger.debug("Updated hidden states")
+                # update 'emission' parameters
+                self.logger.debug("Performing global updates")
+                self.mu_L, self.sigma2_L = self.update_L()
+                self.logger.debug("Updated L")
+                self._clean_cache_L()
 
-            self.mu_F, self.sigma2_F = self.update_F()
-            self.logger.debug("Updated F")
-            self._clean_cache_F()
+                self.mu_F, self.sigma2_F = self.update_F()
+                self.logger.debug("Updated F")
+                self._clean_cache_F()
 
-            self.a_tau, self.b_tau = self.update_tau()
-            self.logger.debug("Updated tau")
-            self._clean_cache_tau()
+                self.a_tau, self.b_tau = self.update_tau()
+                self.logger.debug("Updated tau")
+                self._clean_cache_tau()
 
-            self.a_alpha, self.b_alpha = self.update_alpha()
-            self.logger.debug("Updated alpha")
-            self._clean_cache_alpha()
+                self.a_alpha, self.b_alpha = self.update_alpha()
+                self.logger.debug("Updated alpha")
+                self._clean_cache_alpha()
 
-            self.dirchlet_A = self.update_A()
-            self.logger.debug("Updated A")
-
-
-            # compute elbo
-            new_elbo = self.elbo()
-            elbos[i] = new_elbo
-            delta = np.abs(current_elbo - new_elbo)
-            pct_change = delta / np.abs(current_elbo)
-
-            self.logger.info(f"Iteration {i} - ELBO - {new_elbo:.4f} ({pct_change:.1e}% change)")
-
-            if new_elbo > current_elbo:
-                warnings.warn(f"Iteration {i} - increase in ELBO occurred")
-
-            if pct_change < eps:
-                print("ELBO Converged, done.")
-                converged = True
-                return elbos[0:i]
-
-            current_elbo = new_elbo
+                self.dirchlet_A = self.update_A()
+                self.logger.debug("Updated A")
 
 
-        if not converged:
-            warnings.warn("ELBO did not converge for this run")
+                # compute elbo
+                new_elbo = self.elbo()
+                if np.isnan(new_elbo):
+                    # reset
+                    self._init_variational_params()
+                    self.logger.warning("Found nan elbo, retrying")
+                    retries += 1
+                    break
+                elbos[i] = new_elbo
+                delta = np.abs(current_elbo - new_elbo)
+                pct_change = delta / np.abs(current_elbo)
+
+                self.logger.info(f"Iteration {i} - ELBO - {new_elbo:.4f} ({pct_change:.1e}% change)")
+
+                if new_elbo > current_elbo:
+                    warnings.warn(f"Iteration {i} - increase in ELBO occurred")
+
+                if pct_change < eps:
+                    print("ELBO Converged, done.")
+                    return elbos[0:i]
+
+                current_elbo = new_elbo
+
+
+            if not converged:
+                warnings.warn("ELBO did not converge for this run")
+
+
 
         return elbos

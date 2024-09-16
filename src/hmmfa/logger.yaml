@@ -8,7 +8,7 @@ formatters:
 handlers:
   console:
     class: logging.StreamHandler
-    level: DEBUG
+    level: INFO
     formatter: simple
     stream: ext://sys.stdout
 
@@ -25,10 +25,6 @@ handlers:
 
 loggers:
   hmcfa:
-    level: DEBUG
+    level: INFO
     handlers: [console, rotating_file_handler]
     propagate: no
-
-root:
-  level: DEBUG
-  handlers: [console]

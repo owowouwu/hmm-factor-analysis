@@ -1,8 +1,9 @@
 source('scripts/utils.R')
 library(viridis)
 library(lattice)
-library(arrow)
+library(rhdf5)
 library(dplyr)
+library(abind)
 set.seed(2)
 # simulate data according to Section 5.1 of report
 S <- 5 # sparse factors
@@ -42,11 +43,11 @@ for (t in 1:T) {
 }
 
 # Concatenate all matrices
-ymat_combined <- do.call(rbind, ymat_list)
-lmat_combined <- do.call(rbind, lmat_list)
-zmat_combined <- do.call(rbind, zmat_list)
-tauvec_combined <- do.call(c, tauvec_list)  # assuming tauvec is a vector
-alphavec_combined <- do.call(c, alphavec_list)  # assuming alphavec is a vector
+ymat_3d <- abind::abind(ymat_list, along = 3)
+lmat_3d <- abind::abind(lmat_list, along = 3)
+zmat_3d <- abind::abind(zmat_list, along = 3)
+tauvec_combined <- abind::abind(tauvec_list, along = 2)  # assuming tauvec is a vector
+alphavec_combined <- abind::abind(alphavec_list, along = 2)  # assuming alphavec is a vector
 
 
 # Save results to the specified directory in Arrow format
@@ -55,12 +56,20 @@ if (!dir.exists(output_dir)) {
   dir.create(output_dir, recursive = TRUE)
 }
 
-# Write each matrix to Arrow format (Feather or Parquet)
-write_feather(as.data.frame(ymat_combined), file.path(output_dir, "ymat.feather"))
-write_feather(as.data.frame(lmat_combined), file.path(output_dir, "lmat.feather"))
-write_feather(as.data.frame(zmat_combined), file.path(output_dir, "zmat.feather"))
-write_feather(as.data.frame(tauvec_combined), file.path(output_dir, "tauvec.feather"))
-write_feather(as.data.frame(alphavec_combined), file.path(output_dir, "alphavec.feather"))
+
+h5file <- file.path(output_dir, "arrays.h5")
+h5createFile(h5file)
+
+# Write each matrix to the HDF5 file
+h5write(ymat_3d, h5file, "ymat")
+h5write(lmat_3d, h5file, "lmat")
+h5write(zmat_3d, h5file, "zmat")
+
+# Write each vector to the HDF5 file
+h5write(tauvec_combined, h5file, "tauvec")
+h5write(alphavec_combined, h5file, "alphavec")  
+
+H5close()
 
 png(filename = file.path(output_dir, "connectivities.png"), 
     width = 1500, 
