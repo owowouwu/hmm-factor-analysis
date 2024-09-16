@@ -6,7 +6,6 @@ import tqdm
 from tqdm import tqdm
 from scipy.special import digamma, gamma, gammaln
 from typing import Dict, List, Union
-from numba import njit
 from functools import cached_property
 from . import get_logger
 from opt_einsum import contract

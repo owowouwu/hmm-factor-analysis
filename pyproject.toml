@@ -1,0 +1,43 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = "src/hmmfa/__init__.py"
+
+[[tool.hatch.envs.tests.matrix]]
+python = ["39", "310", "311", "312"]
+
+[project]
+name = "hmmfa"
+dynamic = ["version"]
+description = "My package description"
+authors = [
+    {name="Steven Nguyen", email="steven.n.1618@gmail.com"},
+]
+# review what is appropriate for your package
+license = {text="MIT"}
+readme = "README.md"
+requires-python = ">=3.9"
+# Until python-sdk publishes pip wheels, we need to keep requirements.txt
+# since pyproject.toml does not currently support installing from zip
+dependencies = [
+    "pandas",
+    "numpy",
+    "scipy",
+    "opt_einsum",
+    "tqdm"
+]
+
+[project.optional-dependencies]
+build = [
+    "hatch",
+    "build",
+]
+dev = [
+    # Testing dependencies
+    "pytest>=7.2.2",
+    "pytest-cov>=4.0.0",
+    # Linting and formatting
+    "ruff",
+]

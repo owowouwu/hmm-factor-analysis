@@ -3,8 +3,8 @@ import scipy as sp
 import scipy.stats
 import matplotlib.pyplot as plt
 from scipy.special import digamma
-from hmcfa.model import HiddenMarkovFA
-from hmcfa.evals import simple_time_heatmap
+from hmmfa.model import HiddenMarkovFA
+from hmmfa.evals import simple_time_heatmap
 import logging
 logging.getLogger('hmcfa').setLevel(logging.INFO)
 
