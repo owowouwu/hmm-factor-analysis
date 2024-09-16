@@ -1,4 +1,12 @@
+
+# data
 data/
+!data/synthetic
+## allow lists
+
+
+
+# everything else
 .ipynb_checkpoints
 renv/
 .Rprofile
@@ -6,3 +14,5 @@ renv/
 .Rproj.user
 .Rdata
 .Rhistory
+output/
+.idea/
