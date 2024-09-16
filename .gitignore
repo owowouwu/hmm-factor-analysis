@@ -1,6 +1,7 @@
 
 # data
 data/
+!data/synthetic
 ## allow lists
 
 
@@ -11,5 +12,6 @@ renv/
 .Rprofile
 *.pickle
 .Rproj.user
+.Rdata
 output/
 .idea/
