@@ -6,7 +6,7 @@ import tqdm
 import h5py
 from tqdm import tqdm
 from scipy.special import digamma, gamma, gammaln
-from typing import Dict, List, Union
+from typing import Dict, List, Union, Literal
 from functools import cached_property
 from . import get_logger
 from opt_einsum import contract
@@ -17,7 +17,7 @@ np.set_printoptions(precision=3, suppress=True)
 
 class HiddenMarkovFA:
 
-    def __init__(self, data: np.ndarray, n_factors: int,
+    def __init__(self, data: np.ndarray, n_factors: int, init_method: Literal['random', 'prior'] = 'prior',
                  **kwargs
                  ):
         """
@@ -27,8 +27,9 @@ class HiddenMarkovFA:
         self.Y = data
         self.K = n_factors
         self.T, self.G, self.N = data.shape
+        self.init_method = init_method
         self._parse_hyperparameters(**kwargs)
-        self._init_variational_params()
+        self._init_variational_params(self.init_method)
         self._updated_a_tau = False
         self.mask = ~np.eye(self.K, dtype=bool)
         self.I = np.eye(self.K, dtype=bool)
@@ -43,25 +44,36 @@ class HiddenMarkovFA:
         self.log_pi = np.log(self.pi)  # for later
         self.dirchlet_A_prior = kwargs.get('dirchlet_A_prior', np.full(shape=(self.K, 2, 2), fill_value=1))
 
-    def _init_variational_params(self):
-        self.mu_F = sp.stats.norm.rvs(size=(self.T, self.K, self.N))
-        self.sigma2_F = sp.stats.gamma.rvs(a=1, scale=1, size=(self.T, self.K, self.N))
-        self.mu_L = sp.stats.norm.rvs(size=(self.T, self.G, self.K))
-        self.sigma2_L = sp.stats.gamma.rvs(a=1, scale=1, size=(self.T, self.G, self.K))
-        self.a_tau = sp.stats.gamma.rvs(a=1, scale=1, size=(self.T, self.G))
-        self.b_tau = sp.stats.gamma.rvs(a=1, scale=1, size=(self.T, self.G))
-        self.a_alpha = sp.stats.gamma.rvs(a=1, scale=1, size=(self.T, self.K))
-        self.b_alpha = sp.stats.gamma.rvs(a=1, scale=1, size=(self.T, self.K))
-        self.dirchlet_A = sp.stats.gamma.rvs(a=1, scale=1, size=(self.K, 2, 2))
-        self.A_variational = np.full(shape=(self.K, 2, 2), fill_value=0.5)
-        self.variational_likelihoods = np.zeros(shape=(2, self.T, self.G, self.K))
-        self.eta = sp.stats.beta.rvs(a=1, b=1, size=(self.T, self.G, self.K))
-        self.pairwise = sp.stats.beta.rvs(a=1, b=1, size=(self.T - 1, self.G, self.K, 2, 2))
+    def _init_variational_params(self, how : Literal['random', 'prior'] = 'prior'):
+        if how == 'random':
+            self.mu_F = sp.stats.norm.rvs(size=(self.T, self.K, self.N))
+            self.sigma2_F = sp.stats.gamma.rvs(a=1, scale=1, size=(self.T, self.K, self.N))
+            self.mu_L = sp.stats.norm.rvs(size=(self.T, self.G, self.K))
+            self.sigma2_L = sp.stats.gamma.rvs(a=1, scale=1, size=(self.T, self.G, self.K))
+            self.a_tau = sp.stats.gamma.rvs(a=1, scale=1, size=(self.T, self.G))
+            self.b_tau = sp.stats.gamma.rvs(a=1, scale=1, size=(self.T, self.G))
+            self.a_alpha = sp.stats.gamma.rvs(a=1, scale=1, size=(self.T, self.K))
+            self.b_alpha = sp.stats.gamma.rvs(a=1, scale=1, size=(self.T, self.K))
+            self.dirchlet_A = sp.stats.gamma.rvs(a=1, scale=1, size=(self.K, 2, 2))
+            self.eta = self.eta = sp.stats.beta.rvs(a=1, b=1, size=(self.T, self.G, self.K))
+        elif how == 'prior':
+            # fixed
+            self.mu_F = np.zeros(shape = (self.T, self.K, self.N))
+            self.mu_L = np.zeros(shape=(self.T, self.G, self.K))
+            self.sigma2_F = np.ones(shape = (self.T, self.K, self.N))
+            # based on prior mean
+            self.sigma2_L = np.repeat((self.a_alpha_prior / self.b_alpha_prior)[:, np.newaxis, :], self.G, axis = 1)
+            # just take prior parameters
+            self.a_alpha = self.a_alpha_prior
+            self.b_alpha = self.b_alpha_prior
+            self.a_tau = self.a_tau_prior
+            self.b_tau = self.b_tau_prior
+            self.dirchlet_A = self.dirchlet_A_prior
+            self.eta = np.tile(self.pi[:, 1], (self.T, self.G, 1))
 
-        # normalise pairwsie
-        self.pairwise  = self.pairwise / self.pairwise.sum(axis = (-1, -2))[:,:,:, np.newaxis, np.newaxis]
 
-        self.normalisations = np.zeros(shape=(self.T, self.G, self.K))
+
+
 
     def save(self, filename, include_hmm = False):
         if not include_hmm:
@@ -121,37 +133,37 @@ class HiddenMarkovFA:
         if 'a_over_b_alpha' in self.__dict__:
             del self.__dict__['a_over_b_alpha']
 
-    @cached_property
+    @property
     def y_dot_y(self):
         return contract('tgn,tgn->tg', self.Y, self.Y)
-    @cached_property
+    @property
     def weighted_L(self):
         return self.eta * self.mu_L
 
-    @cached_property
+    @property
     def a_over_b_alpha(self):
         return self.a_alpha / self.b_alpha
 
-    @cached_property
+    @property
     def a_over_b_tau(self):
         return self.a_tau / self.b_tau
 
-    @cached_property
+    @property
     def second_moment_F(self):
         return self.mu_F ** 2 + self.sigma2_F
 
-    @cached_property
+    @property
     def second_moment_L(self):
         return self.mu_L ** 2 + self.sigma2_L
 
-    @cached_property
+    @property
     def mixed_moment_F(self):
         outer_prod_mu_f = contract('tkn,tin->tkin', self.mu_F, self.mu_F)
         masked_sigma2_f = contract('tkn,ki->tkin', self.sigma2_F, self.I)
         mixed_moment_f = outer_prod_mu_f + masked_sigma2_f
         return mixed_moment_f
 
-    @cached_property
+    @property
     def mixed_moment_L(self):
         outer_prod_mu_l = contract('tgk,tgi->tgki', self.mu_L, self.mu_L)
         masked_sigma2_l = contract('tgk,ki->tgki', self.sigma2_L, self.I)
@@ -189,7 +201,7 @@ class HiddenMarkovFA:
     def M_step(self):
         forward, backward = self.forward_messages(), self.backward_messages()
         log_q_z = forward + backward
-        pairwise_new = np.zeros(self.pairwise.shape)
+        pairwise_new = np.zeros(shape=(self.T - 1, self.G, self.K, 2, 2))
         for t in range(1, self.T):
             pairwise_new[t - 1] = (
                     forward[t - 1, :, :, :, np.newaxis] +
@@ -372,13 +384,15 @@ class HiddenMarkovFA:
 
     def run(self, eps: float = 1e-4, max_it: int = 1000, max_tries: int = 1, progress_bar: bool = False):
         elbo_converged = False
-        current_elbo = np.inf
+        current_elbo = -np.inf
         elbos = np.zeros(max_it)
         converged = False
         retries = 1
         while retries < max_tries:
+            self.logger.info(f"Try {retries}")
             for i in tqdm(range(max_it), disable=not progress_bar):
                 # local updates
+                self.logger.info(f"Iteration {i}")
                 self.logger.debug("Performing local updates")
                 self.logger.debug("Performing V step")
                 self.A_variational, self.variational_likelihoods = self.V_step()
@@ -392,19 +406,19 @@ class HiddenMarkovFA:
                 self.logger.debug("Performing global updates")
                 self.mu_L, self.sigma2_L = self.update_L()
                 self.logger.debug("Updated L")
-                self._clean_cache_L()
+                #self._clean_cache_L()
 
                 self.mu_F, self.sigma2_F = self.update_F()
                 self.logger.debug("Updated F")
-                self._clean_cache_F()
+                #self._clean_cache_F()
 
                 self.a_tau, self.b_tau = self.update_tau()
                 self.logger.debug("Updated tau")
-                self._clean_cache_tau()
+                #self._clean_cache_tau()
 
                 self.a_alpha, self.b_alpha = self.update_alpha()
                 self.logger.debug("Updated alpha")
-                self._clean_cache_alpha()
+                #self._clean_cache_alpha()
 
                 self.dirchlet_A = self.update_A()
                 self.logger.debug("Updated A")
@@ -412,25 +426,32 @@ class HiddenMarkovFA:
 
                 # compute elbo
                 new_elbo = self.elbo()
+                if i != 0:
+                    delta = np.abs(current_elbo - new_elbo)
+                    pct_change = delta / np.abs(current_elbo)
+                    self.logger.info(f"Iteration {i} - ELBO - {new_elbo:.4f} ({pct_change:.1e}% change)")
+                else:
+                    self.logger.info(f"Iteration {i} - ELBO - {new_elbo:.4f}")
                 if np.isnan(new_elbo):
                     # reset
-                    self._init_variational_params()
+                    self._init_variational_params(self.init_method)
                     self.logger.warning("Found nan elbo, retrying")
                     retries += 1
+                    current_elbo = -np.inf
+                    elbos = np.zeros(max_it)
                     break
+
                 elbos[i] = new_elbo
-                delta = np.abs(current_elbo - new_elbo)
-                pct_change = delta / np.abs(current_elbo)
 
-                self.logger.info(f"Iteration {i} - ELBO - {new_elbo:.4f} ({pct_change:.1e}% change)")
 
-                if new_elbo > current_elbo:
-                    warnings.warn(f"Iteration {i} - increase in ELBO occurred")
 
-                if pct_change < eps:
-                    print("ELBO Converged, done.")
-                    return elbos[0:i]
 
+                if new_elbo < current_elbo:
+                    warnings.warn(f"Iteration {i} - decrease in ELBO occurred")
+                if i > 0:
+                    if pct_change < eps:
+                        print("ELBO Converged, done.")
+                        return elbos[0:i]
                 current_elbo = new_elbo
 
 

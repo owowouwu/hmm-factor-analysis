@@ -27243,3 +27243,133 @@
 2024-09-16 15:03:42,040 - hmcfa - WARNING - Found nan elbo, retrying
 2024-09-16 15:03:42,146 - hmcfa - WARNING - Found nan elbo, retrying
 2024-09-16 15:03:42,252 - hmcfa - WARNING - Found nan elbo, retrying
+2024-09-16 15:08:01,645 - hmcfa - INFO - Iteration 0 - ELBO - -335567767.5986 (nan% change)
+2024-09-16 15:08:01,795 - hmcfa - WARNING - Found nan elbo, retrying
+2024-09-16 15:08:01,946 - hmcfa - INFO - Iteration 0 - ELBO - -255645539.5775 (2.4e-01% change)
+2024-09-16 15:08:02,097 - hmcfa - WARNING - Found nan elbo, retrying
+2024-09-16 15:08:02,256 - hmcfa - INFO - Iteration 0 - ELBO - -211931532.1921 (1.7e-01% change)
+2024-09-16 15:08:02,409 - hmcfa - WARNING - Found nan elbo, retrying
+2024-09-16 15:08:02,561 - hmcfa - INFO - Iteration 0 - ELBO - -580820511.9981 (1.7e+00% change)
+2024-09-16 15:08:02,715 - hmcfa - WARNING - Found nan elbo, retrying
+2024-09-16 15:09:09,120 - hmcfa - INFO - Iteration 0 - ELBO - -335567767.5986 (nan% change)
+2024-09-16 15:09:09,273 - hmcfa - WARNING - Found nan elbo, retrying
+2024-09-16 15:09:09,429 - hmcfa - INFO - Iteration 0 - ELBO - -255645539.5775 (2.4e-01% change)
+2024-09-16 15:09:09,581 - hmcfa - WARNING - Found nan elbo, retrying
+2024-09-16 15:09:09,735 - hmcfa - INFO - Iteration 0 - ELBO - -211931532.1921 (1.7e-01% change)
+2024-09-16 15:09:09,884 - hmcfa - WARNING - Found nan elbo, retrying
+2024-09-16 15:09:10,034 - hmcfa - INFO - Iteration 0 - ELBO - -580820511.9981 (1.7e+00% change)
+2024-09-16 15:09:10,186 - hmcfa - WARNING - Found nan elbo, retrying
+2024-09-16 15:09:34,501 - hmcfa - INFO - Try 1
+2024-09-16 15:09:34,503 - hmcfa - INFO - Iteration 0
+2024-09-16 15:09:34,658 - hmcfa - INFO - Iteration 0 - ELBO - -335567767.5986 (nan% change)
+2024-09-16 15:09:34,658 - hmcfa - INFO - Iteration 1
+2024-09-16 15:09:34,810 - hmcfa - WARNING - Found nan elbo, retrying
+2024-09-16 15:09:34,810 - hmcfa - INFO - Try 2
+2024-09-16 15:09:34,811 - hmcfa - INFO - Iteration 0
+2024-09-16 15:09:34,962 - hmcfa - INFO - Iteration 0 - ELBO - -255645539.5775 (2.4e-01% change)
+2024-09-16 15:09:34,962 - hmcfa - INFO - Iteration 1
+2024-09-16 15:09:35,113 - hmcfa - WARNING - Found nan elbo, retrying
+2024-09-16 15:09:35,113 - hmcfa - INFO - Try 3
+2024-09-16 15:09:35,113 - hmcfa - INFO - Iteration 0
+2024-09-16 15:09:35,265 - hmcfa - INFO - Iteration 0 - ELBO - -211931532.1921 (1.7e-01% change)
+2024-09-16 15:09:35,265 - hmcfa - INFO - Iteration 1
+2024-09-16 15:09:35,417 - hmcfa - WARNING - Found nan elbo, retrying
+2024-09-16 15:09:35,417 - hmcfa - INFO - Try 4
+2024-09-16 15:09:35,417 - hmcfa - INFO - Iteration 0
+2024-09-16 15:09:35,568 - hmcfa - INFO - Iteration 0 - ELBO - -580820511.9981 (1.7e+00% change)
+2024-09-16 15:09:35,568 - hmcfa - INFO - Iteration 1
+2024-09-16 15:09:35,720 - hmcfa - WARNING - Found nan elbo, retrying
+2024-09-16 15:16:15,966 - hmcfa - INFO - Try 1
+2024-09-16 15:16:15,968 - hmcfa - INFO - Iteration 0
+2024-09-16 15:16:16,126 - hmcfa - INFO - Iteration 0 - ELBO - -335567767.5986 (nan% change)
+2024-09-16 15:16:16,126 - hmcfa - INFO - Iteration 1
+2024-09-16 15:16:16,283 - hmcfa - WARNING - Found nan elbo, retrying
+2024-09-16 15:16:16,283 - hmcfa - INFO - Try 2
+2024-09-16 15:16:16,283 - hmcfa - INFO - Iteration 0
+2024-09-16 15:16:16,438 - hmcfa - INFO - Iteration 0 - ELBO - -255645539.5775 (2.4e-01% change)
+2024-09-16 15:16:16,438 - hmcfa - INFO - Iteration 1
+2024-09-16 15:16:16,593 - hmcfa - WARNING - Found nan elbo, retrying
+2024-09-16 15:16:16,593 - hmcfa - INFO - Try 3
+2024-09-16 15:16:16,593 - hmcfa - INFO - Iteration 0
+2024-09-16 15:16:16,749 - hmcfa - INFO - Iteration 0 - ELBO - -211931532.1921 (1.7e-01% change)
+2024-09-16 15:16:16,749 - hmcfa - INFO - Iteration 1
+2024-09-16 15:16:16,906 - hmcfa - WARNING - Found nan elbo, retrying
+2024-09-16 15:16:16,906 - hmcfa - INFO - Try 4
+2024-09-16 15:16:16,906 - hmcfa - INFO - Iteration 0
+2024-09-16 15:16:17,062 - hmcfa - INFO - Iteration 0 - ELBO - -580820511.9981 (1.7e+00% change)
+2024-09-16 15:16:17,062 - hmcfa - INFO - Iteration 1
+2024-09-16 15:16:17,218 - hmcfa - WARNING - Found nan elbo, retrying
+2024-09-16 15:19:21,128 - hmcfa - INFO - Try 1
+2024-09-16 15:19:21,130 - hmcfa - INFO - Iteration 0
+2024-09-16 15:19:21,289 - hmcfa - INFO - Iteration 0 - ELBO - -335567767.5986 change)
+2024-09-16 15:20:23,095 - hmcfa - INFO - Try 1
+2024-09-16 15:20:23,097 - hmcfa - INFO - Iteration 0
+2024-09-16 15:20:23,254 - hmcfa - INFO - Iteration 0 - ELBO - -335567767.5986 change)
+2024-09-16 15:20:23,254 - hmcfa - INFO - Iteration 1
+2024-09-16 15:20:23,407 - hmcfa - INFO - Iteration 1 - ELBO - nan (nan% change)
+2024-09-16 15:20:23,409 - hmcfa - WARNING - Found nan elbo, retrying
+2024-09-16 15:20:23,409 - hmcfa - INFO - Try 2
+2024-09-16 15:20:23,409 - hmcfa - INFO - Iteration 0
+2024-09-16 15:20:23,564 - hmcfa - INFO - Iteration 0 - ELBO - -255645539.5775 change)
+2024-09-16 15:20:23,564 - hmcfa - INFO - Iteration 1
+2024-09-16 15:20:23,716 - hmcfa - INFO - Iteration 1 - ELBO - nan (nan% change)
+2024-09-16 15:20:23,718 - hmcfa - WARNING - Found nan elbo, retrying
+2024-09-16 15:20:23,718 - hmcfa - INFO - Try 3
+2024-09-16 15:20:23,719 - hmcfa - INFO - Iteration 0
+2024-09-16 15:20:23,873 - hmcfa - INFO - Iteration 0 - ELBO - -211931532.1921 change)
+2024-09-16 15:20:23,874 - hmcfa - INFO - Iteration 1
+2024-09-16 15:20:24,026 - hmcfa - INFO - Iteration 1 - ELBO - nan (nan% change)
+2024-09-16 15:20:24,028 - hmcfa - WARNING - Found nan elbo, retrying
+2024-09-16 15:20:24,028 - hmcfa - INFO - Try 4
+2024-09-16 15:20:24,028 - hmcfa - INFO - Iteration 0
+2024-09-16 15:20:24,183 - hmcfa - INFO - Iteration 0 - ELBO - -580820511.9981 change)
+2024-09-16 15:20:24,183 - hmcfa - INFO - Iteration 1
+2024-09-16 15:20:24,338 - hmcfa - INFO - Iteration 1 - ELBO - nan (nan% change)
+2024-09-16 15:20:24,340 - hmcfa - WARNING - Found nan elbo, retrying
+2024-09-16 15:21:20,864 - hmcfa - INFO - Try 1
+2024-09-16 15:21:20,867 - hmcfa - INFO - Iteration 0
+2024-09-16 15:21:21,030 - hmcfa - INFO - Iteration 0 - ELBO - -335567767.5986
+2024-09-16 15:21:21,030 - hmcfa - INFO - Iteration 1
+2024-09-16 15:21:21,191 - hmcfa - INFO - Iteration 1 - ELBO - nan (nan% change)
+2024-09-16 15:21:21,195 - hmcfa - WARNING - Found nan elbo, retrying
+2024-09-16 15:21:21,195 - hmcfa - INFO - Try 2
+2024-09-16 15:21:21,196 - hmcfa - INFO - Iteration 0
+2024-09-16 15:21:21,355 - hmcfa - INFO - Iteration 0 - ELBO - -255645539.5775
+2024-09-16 15:21:21,355 - hmcfa - INFO - Iteration 1
+2024-09-16 15:21:21,512 - hmcfa - INFO - Iteration 1 - ELBO - nan (nan% change)
+2024-09-16 15:21:21,514 - hmcfa - WARNING - Found nan elbo, retrying
+2024-09-16 15:21:21,515 - hmcfa - INFO - Try 3
+2024-09-16 15:21:21,515 - hmcfa - INFO - Iteration 0
+2024-09-16 15:21:21,674 - hmcfa - INFO - Iteration 0 - ELBO - -211931532.1921
+2024-09-16 15:21:21,674 - hmcfa - INFO - Iteration 1
+2024-09-16 15:21:21,831 - hmcfa - INFO - Iteration 1 - ELBO - nan (nan% change)
+2024-09-16 15:21:21,834 - hmcfa - WARNING - Found nan elbo, retrying
+2024-09-16 15:21:21,834 - hmcfa - INFO - Try 4
+2024-09-16 15:21:21,834 - hmcfa - INFO - Iteration 0
+2024-09-16 15:21:21,991 - hmcfa - INFO - Iteration 0 - ELBO - -580820511.9981
+2024-09-16 15:21:21,991 - hmcfa - INFO - Iteration 1
+2024-09-16 15:21:22,147 - hmcfa - INFO - Iteration 1 - ELBO - nan (nan% change)
+2024-09-16 15:21:22,149 - hmcfa - WARNING - Found nan elbo, retrying
+2024-09-16 15:22:25,787 - hmcfa - INFO - Try 1
+2024-09-16 15:22:25,791 - hmcfa - INFO - Iteration 0
+2024-09-16 15:22:33,460 - hmcfa - INFO - Iteration 0 - ELBO - -335567767.5986
+2024-09-16 15:22:33,461 - hmcfa - INFO - Iteration 1
+2024-09-16 15:30:25,277 - hmcfa - INFO - Try 1
+2024-09-16 15:30:25,281 - hmcfa - INFO - Iteration 0
+2024-09-16 15:44:11,620 - hmcfa - INFO - Try 1
+2024-09-16 15:44:11,623 - hmcfa - INFO - Iteration 0
+2024-09-16 16:06:42,858 - hmcfa - INFO - Try 1
+2024-09-16 16:06:42,861 - hmcfa - INFO - Iteration 0
+2024-09-16 16:10:06,786 - hmcfa - INFO - Try 1
+2024-09-16 16:10:06,789 - hmcfa - INFO - Iteration 0
+2024-09-16 16:10:49,392 - hmcfa - INFO - Try 1
+2024-09-16 16:10:49,396 - hmcfa - INFO - Iteration 0
+2024-09-16 16:11:13,663 - hmcfa - INFO - Try 1
+2024-09-16 16:11:13,666 - hmcfa - INFO - Iteration 0
+2024-09-16 16:11:28,643 - hmcfa - INFO - Iteration 0 - ELBO - -22613402.2833
+2024-09-16 16:11:28,643 - hmcfa - INFO - Iteration 1
+2024-09-16 16:11:42,296 - hmcfa - INFO - Iteration 1 - ELBO - -111735838.8572 (3.9e+00% change)
+2024-09-16 16:11:42,296 - hmcfa - INFO - Iteration 2
+2024-09-16 16:11:51,037 - hmcfa - INFO - Iteration 2 - ELBO - -111986501.1541 (2.2e-03% change)
+2024-09-16 16:11:51,037 - hmcfa - INFO - Iteration 3
+2024-09-16 16:11:58,475 - hmcfa - INFO - Iteration 3 - ELBO - -111993347.3687 (6.1e-05% change)
