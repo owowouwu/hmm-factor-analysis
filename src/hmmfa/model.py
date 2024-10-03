@@ -354,11 +354,9 @@ class HiddenMarkovFA:
         ).sum()
 
         p_L = 0.5 * (
-                self.eta * (
                 digam_a_alpha[:, np.newaxis, :] -
                 LOG_TWOPI - log_b_alpha[:, np.newaxis, :] -
                 self.a_over_b_alpha[:, np.newaxis, :] * self.second_moment_L
-            )
         ).sum()
 
         q_F = 0.5 * (self.T * self.K * self.N * (1 + LOG_TWOPI) + np.log(self.sigma2_F.sum()))
